@@ -6,7 +6,7 @@ date: 2021-11-21
 
 # ServiceStack GitHub Action Deployments
 
-The [release.yml](https://github.com/NetCoreTemplates/vue-vite/blob/main/.github/workflows/release.yml) 
+The [release.yml](https://github.com/NetCoreTemplates/vue-ssg/blob/main/.github/workflows/release.yml) 
 in this template enables GitHub Actions CI deployment to a dedicated server with SSH access.
 
 ## Overview
