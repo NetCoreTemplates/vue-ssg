@@ -1,0 +1,55 @@
+<style>
+.navbar {
+    color: #FFF;
+    font-size: 22px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0 0 0 0;
+    line-height: 60px;
+    min-height: 60px;
+    border-radius: 0px;
+    border-bottom: 1px solid #191e23;
+    background: #2c3742; /* Old browsers */
+    background: linear-gradient(to bottom,  #2c3742 0%,#28303a 100%); /* W3C */
+}
+.navbar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    display: inline-block;
+}
+.navbar a.title, .navbar a.title:hover {
+    color: #fff;
+    padding-right: 1em;
+    opacity: 1;
+    padding: 0 0 0 35px;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3e%3cpath fill='white' d='M88 216c81.7 10.2 273.7 102.3 304 232H0c99.5-8.1 184.5-137 88-232zm32-152c32.3 35.6 47.7 83.9 46.4 133.6C249.3 231.3 373.7 321.3 400 448h96C455.3 231.9 222.8 79.5 120 64z'%3e%3c/path%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+}
+.navbar-nav li {
+    display: inline-block;
+    padding: 0 0 0 1rem;
+}
+.navbar a,.navbar a:hover { 
+    color: #aaa; 
+}
+.navbar li.active a {
+    color: #fff; 
+}
+</style>
+
+<div class="navbar">
+    <div class="container">
+
+        <a class="title" href="/">{{ hostServiceName }}</a>
+
+        <ul class="navbar-nav">
+            {{#each it.ownProps()}}
+            <li {{ {active: matchesPathInfo(Key)} |> htmlClass }}>
+                <a class="nav-link" href="{{Key}}">{{Value}}</a>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "cross-env NODE_ENV=production vite-ssg build",
+    "build:local": "vue-tsc --noEmit && vite-ssg build --mode development",
+    "dev": "vite --open",
+    "preview": "vite preview",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@servicestack/client": "^1.0.57",
+    "@tailwindcss/forms": "^0.3.4",
+    "@tailwindcss/typography": "^0.4.1",
+    "@vueuse/core": "^7.1.2",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.0.4",
+    "swrv": "^1.0.0-beta.8",
+    "vue": "^3.2.21"
+  },
+  "devDependencies": {
+    "@iconify-json/carbon": "^1.0.11",
+    "@iconify-json/logos": "^1.0.1",
+    "@iconify-json/mdi": "^1.0.10",
+    "@types/node": "^16.11.10",
+    "@types/nprogress": "^0.2.0",
+    "@vitejs/plugin-vue": "^1.10.1",
+    "@vue/compiler-sfc": "^3.2.23",
+    "@vue/server-renderer": "^3.2.23",
+    "@vueuse/head": "^0.5.1",
+    "autoprefixer": "^10.4.0",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^2.2.19",
+    "typescript": "^4.5.2",
+    "unplugin-auto-import": "^0.4.20",
+    "unplugin-icons": "^0.12.20",
+    "unplugin-vue-components": "^0.17.2",
+    "vite": "^2.6.14",
+    "vite-plugin-inspect": "^0.3.11",
+    "vite-plugin-md": "^0.11.4",
+    "vite-plugin-pages": "^0.19.0-beta.6",
+    "vite-plugin-vue-layouts": "^0.5.0",
+    "vite-ssg": "^0.16.2",
+    "vue-router": "^4.0.12",
+    "vue-tsc": "^0.29.6"
+  }
+}
