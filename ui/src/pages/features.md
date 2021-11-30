@@ -44,7 +44,7 @@ Components({
             componentPrefix: ''
         }),
     ],
-    dts: 'src/components.d.ts' // auto-generated type definitions
+    dts: 'src/components.d.ts', // auto-gen type definitions
 })
 ```
 
@@ -63,14 +63,14 @@ For auto generating vue routing configurations for each Vue 3 component from
 
 ```ts
 Pages({
-    dirs: [
-        { dir: "src/pages", baseRoute: "posts" }, // at: /posts/*
-        { dir: "src/views", baseRoute: "" },      // at: /*
-    ],
-    extensions: ['vue', 'md'],
-    extendRoute(route:any) {
-        // attach markdown frontmatter metadata to their routes
-    },
+  dirs: [
+    { dir: "src/pages", baseRoute: "posts" }, // at: /posts/*
+    { dir: "src/views", baseRoute: "" },      // at: /*
+  ],
+  extensions: ['vue', 'md'],
+  extendRoute(route:any) {
+    // attach markdown frontmatter metadata to their routes
+  },
 })
 ```
 
@@ -104,18 +104,18 @@ library for making typed API Requests with ServiceStack's typed
 
 ```html
 <template>
-    <div v-if="error">{{ error.message }}</div>
-    <div v-else>{{ data ? data.result : 'loading...' }}</div>
+  <div v-if="error">{{ error.message }}</div>
+  <div v-else>{{data ? data.result :'loading...'}}</div>
 </template>
 
 <script setup lang="ts">
-    import { Hello } from "@/dtos"
-    import { swrClient } from "@/api"
+import { Hello } from "@/dtos"
+import { swrClient } from "@/api"
 
-    const props = defineProps<{ name: string }>()
+const props = defineProps<{ name: string }>()
 
-    const { data, error } = swrClient.get(() => 
-            new Hello({ name: props.name }))
+const { data, error } = swrClient.get(() => 
+    new Hello({ name: props.name }))
 </script>
 ```
 

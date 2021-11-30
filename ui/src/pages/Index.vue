@@ -76,7 +76,7 @@
             <div class="flex my-2 sm:w-1/2 md:w-1/3">
               <CarbonMoon v-if="isDark" class="w-7 h-7 mr-2" alt="Moon"/>
               <CarbonSun  v-else class="w-7 h-7 mr-2" alt="Sun"/>
-              <a href="#" @click.prevent="toggleDark">
+              <a href="#" @click.prevent="toggleDark()">
                 <b>Dark Mode</b> - OS defined &amp; user toggable dark mode
               </a>
             </div>
