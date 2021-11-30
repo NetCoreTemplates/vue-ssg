@@ -1,5 +1,5 @@
 <template>
-  <AppPage title="Todos Application" class="max-w-prose">
+  <AppPage title="Todos Application" class="max-w-xl">
 
         <input type="text" v-model="store.newTodo" placeholder="What needs to be done?" 
                class="w-full shadow mb-4"
@@ -42,7 +42,7 @@
           </div>
           
           <div class="leading-8 ml-4">
-            <a href="#" v-if="store.finishedTodos.length" @click.prevent="store.removeFinishedTodos()">
+            <a href="#" :class="{ invisible: store.finishedTodos.length === 0 }" @click.prevent="store.removeFinishedTodos()">
               clear completed
             </a>
           </div>
