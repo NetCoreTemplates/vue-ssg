@@ -26,7 +26,7 @@
               <a href="https://servicestack.net"
                  class="underline hover:text-green-600 duration-200 transition-colors">ServiceStack</a>
             </h4>
-            <div class="flex items-center">
+            <div class="flex items-center flex-wrap sm:flex-nowrap">
               <input type="text" v-model="inputValue"
                      class="mt-2 sm:text-lg rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 dark:bg-gray-800">
               <HelloApi :name="inputValue"/>
