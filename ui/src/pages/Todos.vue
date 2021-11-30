@@ -1,52 +1,52 @@
 <template>
   <AppPage title="Todos Application" class="max-w-xl">
 
-        <input type="text" v-model="store.newTodo" placeholder="What needs to be done?" 
-               class="w-full shadow mb-4"
-               @keyup.enter="store.addTodo()">
+    <input type="text" v-model="store.newTodo" placeholder="What needs to be done?" 
+           class="w-full shadow mb-4"
+           @keyup.enter="store.addTodo()">
 
-        <div class="bg-white shadow overflow-hidden rounded-md">
-          <ul role="list" class="divide-y divide-gray-200">
-            <li v-for="todo in store.filteredTodos" :key="todo.id" class="px-6 py-4">
-              <div class="relative flex items-start" @click="store.toggleTodo(todo.id)">
-                <div class="flex items-center h-6">
-                  <MdiCheckCircle v-if="todo.isFinished" class="text-green-600" />
-                  <MdiCheckboxBlankCircleOutline v-else />
-                </div>
-                <div class="ml-3 flex-grow">
-                  <label :class="{'line-through':todo.isFinished}">{{ todo.text }}</label>
-                </div>
-                <div>
-                  <MdiTrashCanOutline v-if="todo.isFinished" @click="store.removeTodo(todo.id)" />
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="mt-4 flex justify-between">
-          <div class="text-gray-400 leading-8 mr-4">
-            {{ store.unfinishedTodos.length }} item(s) left
+    <div class="bg-white shadow overflow-hidden rounded-md">
+      <ul role="list" class="divide-y divide-gray-200">
+        <li v-for="todo in store.filteredTodos" :key="todo.id" class="px-6 py-4">
+          <div class="relative flex items-start" @click="store.toggleTodo(todo.id)">
+            <div class="flex items-center h-6">
+              <MdiCheckCircle v-if="todo.isFinished" class="text-green-600" />
+              <MdiCheckboxBlankCircleOutline v-else />
+            </div>
+            <div class="ml-3 flex-grow">
+              <label :class="{'line-through':todo.isFinished}">{{ todo.text }}</label>
+            </div>
+            <div>
+              <MdiTrashCanOutline v-if="todo.isFinished" @click="store.removeTodo(todo.id)" />
+            </div>
           </div>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="mt-4 flex justify-between">
+      <div class="text-gray-400 leading-8 mr-4">
+        {{ store.unfinishedTodos.length }} item(s) left
+      </div>
 
-          <div class="inline-flex shadow-sm rounded-md">
-            <FilterTab class="rounded-l-lg border" filter="all">
-              Profile
-            </FilterTab>
-            <FilterTab class="border-t border-b" filter="unfinished">
-              Active
-            </FilterTab>
-            <FilterTab class="rounded-r-md border" filter="finished">
-              Completed
-            </FilterTab>
-          </div>
-          
-          <div class="leading-8 ml-4">
-            <a href="#" :class="{ invisible: store.finishedTodos.length === 0 }" @click.prevent="store.removeFinishedTodos()">
-              clear completed
-            </a>
-          </div>
-        </div>
+      <div class="inline-flex shadow-sm rounded-md">
+        <FilterTab class="rounded-l-lg border" filter="all">
+          Profile
+        </FilterTab>
+        <FilterTab class="border-t border-b" filter="unfinished">
+          Active
+        </FilterTab>
+        <FilterTab class="rounded-r-md border" filter="finished">
+          Completed
+        </FilterTab>
+      </div>
+      
+      <div class="leading-8 ml-4">
+        <a href="#" :class="{ invisible: store.finishedTodos.length === 0 }" @click.prevent="store.removeFinishedTodos()">
+          clear completed
+        </a>
+      </div>
+    </div>
     
     <div class="mt-4 text-center text-gray-400 flex justify-center -ml-6">
       <a href="https://github.com/NetCoreTemplates/vue-ssg/blob/main/ui/src/stores/todos.ts" class="mx-2">
