@@ -47,6 +47,17 @@
             </a>
           </div>
         </div>
+    
+    <div class="mt-4 text-center text-gray-400 flex justify-center -ml-6">
+      <a href="https://github.com/NetCoreTemplates/vue-ssg/blob/main/ui/src/stores/todos.ts" class="mx-2">
+        <NotoPineapple class="w-5 h-5 inline-flex" />
+        todos.ts
+      </a> 
+      <a href="https://github.com/NetCoreTemplates/vue-ssg/blob/main/ui/src/pages/Todos.vue" class="mx-2">
+        <LogosVue class="w-4 h-4 inline-flex" />
+        Todos.vue
+      </a>
+    </div>
 
   </AppPage>
 </template>
@@ -58,7 +69,7 @@ import AppPage from "@/components/AppPage.vue"
 
 const store = useTodosStore()
 
-// Should be in own FilterTab.Vue SFC, using Functional Component to retain in single file
+// Should be in its own FilterTab.Vue SFC, using Functional Component to keep in single file
 const FilterTab = (props:{ filter:Filter }, context:SetupContext) => {
   return h('a', {
     href: '#',
