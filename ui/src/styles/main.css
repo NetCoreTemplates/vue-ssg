@@ -55,6 +55,9 @@ html.dark input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
 }
 
+html.dark h1, html.dark h2, html.dark p { color: #fff }
+html.dark h3, html.dark h4, html.dark h5 { color: #a9c7df }
+
 html.dark, html.dark .bg-white {
   background: #1B2431;
 }
@@ -121,5 +124,3 @@ html.dark .shadow {
 html.dark .focus\:ring-indigo-500 {
   --tw-ring-color: rgba(30, 64, 175, var(--tw-ring-opacity));
 } 
-
-/*focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded*/
