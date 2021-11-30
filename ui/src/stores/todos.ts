@@ -1,16 +1,17 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 
-type Todo = {
+export type Todo = {
     id: number
     text: string
     isFinished: boolean
 }
+export type Filter = "all" | "finished" | "unfinished"
 
 export const useTodosStore = defineStore('todos', () => {
     // State
     const todos = ref<Todo[]>([])
     const newTodo = ref("")
-    const filter = ref<"all" | "finished" | "unfinished">('all')
+    const filter = ref<Filter>('all')
     const nextId = ref(0)
 
     // Getters
@@ -38,6 +39,7 @@ export const useTodosStore = defineStore('todos', () => {
     }
     const removeTodo = (id: number) => { todos.value = todos.value.filter(x => x.id != id) }
     const removeFinishedTodos = () => { todos.value = todos.value.filter(x => !x.isFinished) }
+    const changeFilter = (value:Filter) => filter.value = value
 
     return {
         newTodo,
@@ -49,6 +51,7 @@ export const useTodosStore = defineStore('todos', () => {
         toggleTodo,
         removeTodo,
         removeFinishedTodos,
+        changeFilter,
     }
 })
 
