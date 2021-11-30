@@ -7,13 +7,24 @@ productivity and performance.
 
 |||
 |-|-|
-| [Vite](https://vitejs.dev)   | Modern typed design, Lighting fast reloads, optimal builds, growing ecosystem  |
-| [Vue3](https://v3.vuejs.org) | Elegant, composable reactive typed API that scales to handle small & large Apps |
+| [Vite](https://vitejs.dev)   | Modern typed API, Lighting fast reloads, optimal builds, growing ecosystem  |
+| [Vue3](https://v3.vuejs.org) | Elegant, composable reactive typed API that scales from small to large Apps |
 | [Tailwindcss](https://tailwindcss.com) | Productive responsive-first utility-based css framework with growing [rich component ecosystem](https://tailwindcomponents.com) |
 | [TypeScript](https://www.typescriptlang.org) | Advanced type-safety, static analysis and richer IDE tooling |
 | [Iconify](https://iconify.design) | Unified registry to access 100k+ high quality SVG icons from 100+ icon sets |
 | [Markdown](https://github.com/markdown-it/markdown-it) | Native Markdown integration with advanced featureset supporting embedding of HTML & Vue Components |
+| [Vite SSG](https://github.com/antfu/vite-ssg) | Server-side generation for Vue 3 on Vite |
 | [SWRV](https://github.com/Kong/swrv) | stale-while-revalidate library for Vue 3's composition API enabling optimal end-user UX for API integrations |
+| [Dark Mode](https://tailwindcss.com/docs/dark-mode) | OS defined & user toggable dark mode |
+| [Pinia](https://pinia.esm.dev) | Vue 3 Intuitive, TypeSafe Reactive State Management, checkout [Todos](/todos) |
+| [tailwind/typography](https://tailwindcss-typography.vercel.app) | Beautiful css typography for markdown articles & blog posts |
+| [tailwind/forms](https://github.com/tailwindlabs/tailwindcss-forms) | Beautiful css form & input styles that's easy to override with utilities |
+| [plugin/pages](https://github.com/hannoeru/vite-plugin-pages) | Conventional file system based routing for Vue 3 on Vite |
+| [plugin/layouts](https://github.com/JohnCampionJr/vite-plugin-vue-layouts) | Support for multiple page layouts |
+| [plugin/components](https://github.com/antfu/unplugin-vue-components) | Auto importing & registering of components on-demand |
+| [plugin/auto-import](https://github.com/antfu/unplugin-auto-import) | Global imports in source files for reduced boilerplate |
+| [Authentication](https://docs.servicestack.net/auth) | Simple, built-in flexible auth protected by route guards |
+| [Validation](https://docs.servicestack.net/validation) | Auto form binding, submission, loading and validation |
 
 ## Vue Plugins
 

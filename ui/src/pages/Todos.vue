@@ -31,7 +31,7 @@
 
       <div class="inline-flex shadow-sm rounded-md">
         <FilterTab class="rounded-l-lg border" filter="all">
-          Profile
+          All
         </FilterTab>
         <FilterTab class="border-t border-b" filter="unfinished">
           Active

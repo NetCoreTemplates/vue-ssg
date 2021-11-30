@@ -10,11 +10,14 @@
 
           <div class="flex flex-col">
             <h4 class="text-lg mt-5">
-              Modern <a href="https://v3.vuejs.org"
-                        class="underline hover:text-green-600 duration-200 transition-colors">Vue 3</a>
+              Modern
+              <a href="https://v3.vuejs.org"
+                 class="underline hover:text-green-600 duration-200 transition-colors">Vue 3</a>
               C# template using
               <a href="https://vitejs.dev"
                  class="underline hover:text-green-600 duration-200 transition-colors">Vite</a>,
+              <a href="https://github.com/antfu/vite-ssg"
+                 class="underline hover:text-green-600 duration-200 transition-colors">SSG</a>,
               <a href="https://www.typescriptlang.org"
                  class="underline hover:text-green-600 duration-200 transition-colors">TypeScript</a>,
               <a href="https://tailwindcss.com"
@@ -32,46 +35,118 @@
         </section>
 
         <section>
-          <div class="mb-8 md:mb-16">
-            <div class="sm:mx-0 sm:px-4 sm:py-8 flex sm:border justify-evenly">
-
-              <div>
-                <a href="https://vuejs.org"
-                   class="flex flex-col items-center sm:rounded sm:px-3 sm:py-2 sm:hover:shadow">
-                  <LogosVue class="w-52 h-52 sm:p-2" alt="Vue.js logo"/>
-                  <span class="block text-center sm:text-2xl">
-                    Modern Reactive Elegance
-                  </span>
-                </a>
-              </div>
-              <div>
-                <a href="https://vitejs.dev"
-                   class="flex flex-col items-center sm:rounded sm:px-3 sm:py-2 sm:hover:shadow">
-                  <LogosVitejs class="w-52 h-52" alt="Vite logo"/>
-                  <span class="block text-center sm:text-2xl">
-                    Supercharged Productivity
-                  </span>
-                </a>
-              </div>
-              <div>
-                <a href="https://www.typescriptlang.org"
-                   class="flex flex-col items-center sm:rounded sm:px-3 sm:py-2 sm:hover:shadow">
-                  <LogosTypescriptIcon class="w-52 h-52 sm:p-4" alt="Typescript logo"/>
-                  <span class="block text-center sm:text-2xl">
-                    Industrial Typed Strength
-                  </span>
-                </a>
-              </div>
-              <div>
-                <a href="https://tailwindcss.com"
-                   class="flex flex-col items-center sm:rounded sm:px-3 sm:py-2 sm:hover:shadow">
-                  <LogosTailwindcssIcon class="w-52 h-52 sm:p-1" alt="Tailwindcss logo"/>
-                  <span class="block text-center sm:text-2xl">
-                    Rapid Fluid Design
-                  </span>
-                </a>
-              </div>
+          <div class="mb-8 md:mb-16 flex flex-wrap">
+            
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <LogosVue class="w-7 h-7 mr-2" alt="Vue.js logo"/>
+              <a href="https://vuejs.org">
+                <b>Vue 3</b> - simple, progressive reactive UI framework
+              </a>
             </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <LogosVitejs class="w-7 h-7 mr-2" alt="Vite logo"/>
+              <a href="https://vitejs.dev">
+                <b>Vite</b> - lightning fast live reload server with instant startup
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <LogosTypescriptIcon class="w-7 h-7 mr-2" alt="Typescript logo"/>
+              <a href="https://www.typescriptlang.org">
+                <b>Typescript</b> - stronlgly typed language for better tooling at scale
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <OcticonCpu16 class="w-7 h-7 mr-2" alt="Vue SSG"/>
+              <a href="https://github.com/antfu/vite-ssg">
+                <b>Vite SSG</b> - server-side generation for Vue 3 on Vite
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <SimpleIconsMarkdown class="w-7 h-7 mr-2" alt="Markdown logo"/>
+              <a href="https://www.markdownguide.org">
+                <b>Markdown</b> - rich, extensible support for docs &amp; blogs
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <LogosTailwindcssIcon class="w-7 h-7 mr-2" alt="Tailwind logo"/>
+              <a href="https://tailwindcss.com">
+                <b>Tailwind</b> - beautiful utility-first CSS framework
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <CarbonMoon v-if="isDark" class="w-7 h-7 mr-2" alt="Moon"/>
+              <CarbonSun  v-else class="w-7 h-7 mr-2" alt="Sun"/>
+              <a href="#" @click.prevent="toggleDark">
+                <b>Dark Mode</b> - OS defined &amp; user toggable dark mode
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <LineMdIconify2 class="w-7 h-7 mr-2" alt="Iconify logo"/>
+              <a href="https://iconify.design">
+                <b>Iconify</b> - 100k+ quality SVG icons in one unified framework
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <NotoPineapple class="w-7 h-7 mr-2" alt="Pinia logo"/>
+              <a href="https://pinia.esm.dev">
+                <b>Pinia</b> - Vue 3 Intuitive, TypeSafe Reactive State Management
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <MdiCached class="w-7 h-7 mr-2" alt="Cache Icon"/>
+              <a href="https://github.com/Kong/swrv">
+                <b>SWRV</b> - typed, state-while-revalidate fetch &amp; Service Client
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <LogosTailwindcssIcon class="w-7 h-7 mr-2" alt="Tailwind logo"/>
+              <a href="https://tailwindcss-typography.vercel.app">
+                <b>@tailwind/typography</b> - beautiful typography for markdown
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <LogosTailwindcssIcon class="w-7 h-7 mr-2" alt="Tailwind logo"/>
+              <a href="https://github.com/tailwindlabs/tailwindcss-forms">
+                <b>@tailwind/forms</b> - beautiful basic form & input styles
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <CarbonDocumentExport class="w-7 h-7 mr-2" alt="Plugin Pages"/>
+              <a href="https://github.com/hannoeru/vite-plugin-pages">
+                <b>plugin/pages</b> - file system based routing for Vue 3 Vite
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <IcRoundAutoAwesomeMosaic class="w-7 h-7 mr-2" alt="Plugin Layouts"/>
+              <a href="https://github.com/JohnCampionJr/vite-plugin-vue-layouts">
+                <b>plugin/layouts</b> - support for multiple page layouts
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <IcRoundSettingsInputComponent class="w-7 h-7 mr-2" alt="Plugin Layouts"/>
+              <a href="https://github.com/antfu/unplugin-vue-components">
+                <b>plugin/components</b> - auto importing components on-demand
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <SimpleIconsCodeclimate class="w-7 h-7 mr-2" alt="Plugin Layouts"/>
+              <a href="https://github.com/antfu/unplugin-auto-import">
+                <b>plugin/autoimport</b> - global imports for minimal code
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <MdiShieldLockOutline class="w-7 h-7 mr-2" alt="Auto validation"/>
+              <a href="https://docs.servicestack.net/auth">
+                <b>authentication</b> - simple auth protected by route guards
+              </a>
+            </div>
+            <div class="flex my-2 sm:w-1/2 md:w-1/3">
+              <CarbonCheckmarkOutlineWarning class="w-7 h-7 mr-2" alt="Auto validation"/>
+              <a href="https://docs.servicestack.net/validation">
+                <b>validation</b> - auto form binding and validation
+              </a>
+            </div>
+
           </div>
         </section>
 
@@ -88,6 +163,7 @@
 import HelloApi from "@/components/HelloApi.vue"
 import GettingStarted from "@/components/GettingStarted.vue"
 import { ref } from "vue"
+import { isDark, toggleDark } from "@/composables"
 
 const inputValue = ref('Vue.js')
 </script>
