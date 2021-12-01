@@ -17,6 +17,7 @@ module.exports = {
           css: {
             'pre': {
               overflowX: 'auto',
+              maxWidth: 'calc(100vw - 1rem)'
             },
             code: {
               color: colors.blue[500],
