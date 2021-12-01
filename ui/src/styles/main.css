@@ -56,7 +56,7 @@ html.dark input:-webkit-autofill:active {
 }
 
 html.dark h1, html.dark h2, html.dark p { color: #fff }
-html.dark h3, html.dark h4, html.dark h5 { color: #a9c7df }
+html.dark h3, html.dark h4, html.dark h5, html.dark th { color: #a9c7df }
 
 html.dark, html.dark .bg-white {
   background: #1B2431;
