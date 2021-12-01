@@ -4,7 +4,7 @@
       <div class="mx-auto px-5">
         <AppBreadcrumb class="my-8" name="Markdown Blog"/>
         <h3 class="text-lg mb-8">
-          List of Markdown Posts in <span class="bg-blue-50 text-blue-500 px-2 py-1 rounded">/posts</span>
+          List of Markdown Posts in <code class="bg-blue-50 text-blue-500 px-2 py-1 rounded">/posts</code>
         </h3>
         <div v-for="route in postRoutes" class="mb-8">
           <router-link class="text-2xl hover:text-green-600" :to="route.path">{{ route.frontmatter.title }}</router-link>

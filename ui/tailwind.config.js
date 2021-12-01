@@ -1,5 +1,4 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-const { colors } = defaultTheme
 
 module.exports = {
   mode: 'jit', // in preview: https://tailwindcss.com/docs/just-in-time-mode
@@ -12,7 +11,8 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
-      typography: { // https://github.com/tailwindlabs/tailwindcss-typography
+      // https://github.com/tailwindlabs/tailwindcss-typography
+      typography: (theme) => ({
         DEFAULT: {
           css: {
             'pre': {
@@ -20,8 +20,8 @@ module.exports = {
               maxWidth: 'calc(100vw - 1rem)'
             },
             code: {
-              color: colors.blue[500],
-              backgroundColor: colors.blue[50],
+              color: theme('colors.blue.500'),
+              backgroundColor: theme('colors.blue.50'),
               fontWeight: 'normal',
               borderRadius: '.25rem',
               padding: '.25em .5rem',
@@ -41,7 +41,7 @@ module.exports = {
               'textDecoration': 'underline',
               '&:hover': {
                 opacity: .8,
-                color: colors.gray[600],
+                color: theme('colors.gray.600'),
               },
             },
             b: { color: 'inherit' },
@@ -52,8 +52,8 @@ module.exports = {
             h3: { color: 'inherit' },
             h4: { color: 'inherit' },
           }
-        }
-      },      
+        },
+      }),      
     },
   },
   variants: {

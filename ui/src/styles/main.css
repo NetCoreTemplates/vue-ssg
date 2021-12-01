@@ -80,17 +80,33 @@ html.dark input.focus\:border-indigo-500:focus  {
 html.dark input.shadow-sm, html.dark button.shadow-sm {
   box-shadow: none
 }
-/* primary button */
-html.dark .bg-indigo-600, 
+
+/* tags */
+html.dark code.bg-blue-50,
 html.dark .bg-purple-500,
-html.dark .text-blue-500 {
+html.dark .prose code {
+  background-color: rgba(59, 130, 246, 0.3);
+  border: 1px solid  rgb(147, 197, 253, 0.75);
+  color: rgba(239, 246, 255, .9);
+}
+html.dark .prose pre code {
+  border: none;
+  background-color: unset;
+}
+
+/* primary button */
+html.dark .bg-indigo-600 {
   background: #0093ee radial-gradient(circle,transparent 1%,#0093ee 1%) center/15000%;
-  color: #fff;
+  color: rgba(249, 250, 251);
 }
 /* secondary button */
 html.dark button.bg-white {
   background: #25374f radial-gradient(circle,transparent 1%,#25374f 1%) center/15000%;
   color: #fff;
+}
+html.dark button:hover,
+html.dark a.bg-purple-500:hover {
+  background-color: rgba(59, 130, 246, .5);
 }
 
 html.dark .text-gray-700, html.dark input {
