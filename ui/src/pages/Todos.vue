@@ -26,7 +26,7 @@
     
     <div class="mt-4 flex justify-between">
       <div class="text-gray-400 leading-8 mr-4">
-        {{ store.unfinishedTodos.length }} <span class="hidden sm:block">item(s)</span> left
+        {{ store.unfinishedTodos.length }} <span class="hidden sm:inline">item(s)</span> left
       </div>
 
       <div class="inline-flex shadow-sm rounded-md">
@@ -43,7 +43,7 @@
       
       <div class="leading-8 ml-4">
         <a href="#" :class="{ invisible: store.finishedTodos.length === 0 }" @click.prevent="store.removeFinishedTodos()">
-          clear <span class="hidden sm:block">completed</span>
+          clear <span class="hidden sm:inline">completed</span>
         </a>
       </div>
     </div>

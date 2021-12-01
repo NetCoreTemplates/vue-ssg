@@ -15,6 +15,9 @@ module.exports = {
       typography: { // https://github.com/tailwindlabs/tailwindcss-typography
         DEFAULT: {
           css: {
+            'pre': {
+              overflowX: 'auto',
+            },
             code: {
               color: colors.blue[500],
               backgroundColor: colors.blue[50],
@@ -47,7 +50,6 @@ module.exports = {
             h2: { color: 'inherit' },
             h3: { color: 'inherit' },
             h4: { color: 'inherit' },
-            code: { color: 'inherit' }            
           }
         }
       },      
