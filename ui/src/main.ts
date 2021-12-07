@@ -8,15 +8,6 @@ import generatedRoutes from "~pages"
 
 import App from "@/App.vue"
 import { configRouter } from "@/routing"
-// import { createHead } from "@vueuse/head"
-
-// const app = createApp(App)
-// const head = createHead()
-//
-// app
-//     .use(head)
-//     .use(router)
-//     .mount('#app')
 
 const routes = setupLayouts(generatedRoutes)
 
