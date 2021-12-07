@@ -27,7 +27,7 @@ a copy of its static UI generated assets and hosted on:
 
 ### GitHub Pages CDN
 
-### [vue-ssg-gh.web-templates.io](https://vue-ssg-gh.web-templates.io)
+### [vue-ssg.jamstacks.net](https://vue-ssg.jamstacks.net)
 
 This is an optional deployment step which publishes a copy of your .NET App's `/wwwroot` folder to this templates 
 [gh-pages](https://github.com/NetCoreTemplates/vue-ssg/tree/gh-pages) branch where it's automatically served from 
@@ -48,7 +48,7 @@ directly from its deployed ASP.NET Core server at:
 
 ### [vue-ssg.web-templates.io](https://vue-ssg.web-templates.io)
 
-But when accessed from the CDN [vue-ssg-gh.web-templates.io](https://vue-ssg-gh.web-templates.io) that contains a 
+But when accessed from the CDN [vue-ssg.jamstacks.net](https://vue-ssg.jamstacks.net) that contains a 
 copy of its static `/wwwroot` UI assets, only its back-end JSON APIs are used to power its dynamic features.
 
 ## Total Cost
