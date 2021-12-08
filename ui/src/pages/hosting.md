@@ -46,7 +46,7 @@ directly from its deployed ASP.NET Core server at:
 
 ### Digital Ocean
 
-### [vue-ssg.web-templates.io](https://vue-ssg.web-templates.io)
+### [vue-ssg-api.jamstacks.net](https://vue-ssg-api.jamstacks.net)
 
 But when accessed from the CDN [vue-ssg.jamstacks.net](https://vue-ssg.jamstacks.net) that contains a 
 copy of its static `/wwwroot` UI assets, only its back-end JSON APIs are used to power its dynamic features.

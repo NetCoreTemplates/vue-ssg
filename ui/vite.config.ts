@@ -3,7 +3,7 @@
 
 // TODO: replace with production URL of .NET App
 
-const DEPLOY_API = 'https://$DEPLOY_API' // e.g. 'https://vue-ssg.web-templates.io'
+const DEPLOY_API = 'https://$DEPLOY_API' // e.g. 'https://vue-ssg-api.jamstacks.net'
 const USE_DEV_PROXY = false // Change to use CORS-free dev proxy at: http://localhost:3000/api
 const DEV_API = 'http://localhost:5000'
 
