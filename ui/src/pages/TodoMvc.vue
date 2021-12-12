@@ -1,9 +1,10 @@
 <template>
   <AppPage title="Todos Application" class="max-w-xl">
 
-    <input type="text" v-model="store.newTodo" placeholder="What needs to be done?" 
-           class="w-full shadow mb-4"
-           @keyup.enter="store.addTodo()">
+    <div class="mb-3">
+      <TextInput :status="store.errorStatus" id="Text" v-model="store.newTodo" placeholder="What needs to be done?" label=""
+                 @keyup.enter.stop="store.addTodo()" />
+    </div>
 
     <div class="bg-white shadow overflow-hidden rounded-md">
       <ul role="list" class="divide-y divide-gray-200">
@@ -66,8 +67,10 @@
 import { h, SetupContext } from "vue"
 import { Filter, useTodosStore } from "@/stores/todos"
 import AppPage from "@/components/AppPage.vue"
+import TextInput from "@/components/form/TextInput.vue";
 
 const store = useTodosStore()
+store.refreshTodos()
 
 // Should be in its own FilterTab.Vue SFC, using Functional Component to keep in single file
 const FilterTab = (props:{ filter:Filter }, context:SetupContext) => {

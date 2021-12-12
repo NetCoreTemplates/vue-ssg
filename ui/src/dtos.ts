@@ -1,6 +1,6 @@
 /* Options:
-Date: 2021-11-18 02:02:16
-Version: 5.131
+Date: 2021-12-13 00:26:32
+Version: 5.133
 Tip: To override a DTO option, remove "//" prefix before updating
 BaseUrl: https://localhost:5001
 
@@ -38,6 +38,115 @@ export interface IHasBearerToken
 
 export interface IPost
 {
+}
+
+export interface IPut
+{
+}
+
+export interface IDelete
+{
+}
+
+export interface ICreateDb<Table>
+{
+}
+
+export interface IPatchDb<Table>
+{
+}
+
+export interface IDeleteDb<Table>
+{
+}
+
+// @DataContract
+export class QueryBase
+{
+    // @DataMember(Order=1)
+    public skip?: number;
+
+    // @DataMember(Order=2)
+    public take?: number;
+
+    // @DataMember(Order=3)
+    public orderBy?: string;
+
+    // @DataMember(Order=4)
+    public orderByDesc?: string;
+
+    // @DataMember(Order=5)
+    public include?: string;
+
+    // @DataMember(Order=6)
+    public fields?: string;
+
+    // @DataMember(Order=7)
+    public meta?: { [index: string]: string; };
+
+    public constructor(init?: Partial<QueryBase>) { (Object as any).assign(this, init); }
+}
+
+export class QueryData<T> extends QueryBase
+{
+
+    public constructor(init?: Partial<QueryData<T>>) { super(init); (Object as any).assign(this, init); }
+}
+
+export class QueryDb<T> extends QueryBase
+{
+
+    public constructor(init?: Partial<QueryDb<T>>) { super(init); (Object as any).assign(this, init); }
+}
+
+// @DataContract
+export class AuditBase
+{
+    // @DataMember(Order=1)
+    public createdDate?: string;
+
+    // @DataMember(Order=2)
+    // @Required()
+    public createdBy?: string;
+
+    // @DataMember(Order=3)
+    public modifiedDate?: string;
+
+    // @DataMember(Order=4)
+    // @Required()
+    public modifiedBy?: string;
+
+    // @DataMember(Order=5)
+    public deletedDate?: string;
+
+    // @DataMember(Order=6)
+    public deletedBy?: string;
+
+    public constructor(init?: Partial<AuditBase>) { (Object as any).assign(this, init); }
+}
+
+export enum RoomType
+{
+    Single = 'Single',
+    Double = 'Double',
+    Queen = 'Queen',
+    Twin = 'Twin',
+    Suite = 'Suite',
+}
+
+export class Booking extends AuditBase
+{
+    public id?: number;
+    public name?: string;
+    public roomType?: RoomType;
+    public roomNumber?: number;
+    public bookingStartDate?: string;
+    public bookingEndDate?: string;
+    public cost?: number;
+    public notes?: string;
+    public cancelled?: boolean;
+
+    public constructor(init?: Partial<Booking>) { super(init); (Object as any).assign(this, init); }
 }
 
 // @DataContract
@@ -87,6 +196,36 @@ export class HelloResponse
 }
 
 // @DataContract
+export class QueryResponse<T>
+{
+    // @DataMember(Order=1)
+    public offset?: number;
+
+    // @DataMember(Order=2)
+    public total?: number;
+
+    // @DataMember(Order=3)
+    public results?: T[];
+
+    // @DataMember(Order=4)
+    public meta?: { [index: string]: string; };
+
+    // @DataMember(Order=5)
+    public responseStatus?: ResponseStatus;
+
+    public constructor(init?: Partial<QueryResponse<T>>) { (Object as any).assign(this, init); }
+}
+
+export class Todo
+{
+    public id?: number;
+    public text?: string;
+    public isFinished?: boolean;
+
+    public constructor(init?: Partial<Todo>) { (Object as any).assign(this, init); }
+}
+
+// @DataContract
 export class AuthenticateResponse implements IHasSessionId, IHasBearerToken
 {
     // @DataMember(Order=1)
@@ -129,24 +268,6 @@ export class AuthenticateResponse implements IHasSessionId, IHasBearerToken
 }
 
 // @DataContract
-export class UnAssignRolesResponse
-{
-    // @DataMember(Order=1)
-    public allRoles?: string[];
-
-    // @DataMember(Order=2)
-    public allPermissions?: string[];
-
-    // @DataMember(Order=3)
-    public meta?: { [index: string]: string; };
-
-    // @DataMember(Order=4)
-    public responseStatus?: ResponseStatus;
-
-    public constructor(init?: Partial<UnAssignRolesResponse>) { (Object as any).assign(this, init); }
-}
-
-// @DataContract
 export class AssignRolesResponse
 {
     // @DataMember(Order=1)
@@ -165,7 +286,58 @@ export class AssignRolesResponse
 }
 
 // @DataContract
-export class RegisterResponse
+export class UnAssignRolesResponse
+{
+    // @DataMember(Order=1)
+    public allRoles?: string[];
+
+    // @DataMember(Order=2)
+    public allPermissions?: string[];
+
+    // @DataMember(Order=3)
+    public meta?: { [index: string]: string; };
+
+    // @DataMember(Order=4)
+    public responseStatus?: ResponseStatus;
+
+    public constructor(init?: Partial<UnAssignRolesResponse>) { (Object as any).assign(this, init); }
+}
+
+// @DataContract
+export class ConvertSessionToTokenResponse
+{
+    // @DataMember(Order=1)
+    public meta?: { [index: string]: string; };
+
+    // @DataMember(Order=2)
+    public accessToken?: string;
+
+    // @DataMember(Order=3)
+    public refreshToken?: string;
+
+    // @DataMember(Order=4)
+    public responseStatus?: ResponseStatus;
+
+    public constructor(init?: Partial<ConvertSessionToTokenResponse>) { (Object as any).assign(this, init); }
+}
+
+// @DataContract
+export class GetAccessTokenResponse
+{
+    // @DataMember(Order=1)
+    public accessToken?: string;
+
+    // @DataMember(Order=2)
+    public meta?: { [index: string]: string; };
+
+    // @DataMember(Order=3)
+    public responseStatus?: ResponseStatus;
+
+    public constructor(init?: Partial<GetAccessTokenResponse>) { (Object as any).assign(this, init); }
+}
+
+// @DataContract
+export class RegisterResponse implements IHasSessionId, IHasBearerToken
 {
     // @DataMember(Order=1)
     public userId?: string;
@@ -186,12 +358,30 @@ export class RegisterResponse
     public refreshToken?: string;
 
     // @DataMember(Order=7)
-    public responseStatus?: ResponseStatus;
+    public roles?: string[];
 
     // @DataMember(Order=8)
+    public permissions?: string[];
+
+    // @DataMember(Order=9)
+    public responseStatus?: ResponseStatus;
+
+    // @DataMember(Order=10)
     public meta?: { [index: string]: string; };
 
     public constructor(init?: Partial<RegisterResponse>) { (Object as any).assign(this, init); }
+}
+
+// @DataContract
+export class IdResponse
+{
+    // @DataMember(Order=1)
+    public id?: string;
+
+    // @DataMember(Order=2)
+    public responseStatus?: ResponseStatus;
+
+    public constructor(init?: Partial<IdResponse>) { (Object as any).assign(this, init); }
 }
 
 // @Route("/hello")
@@ -203,6 +393,66 @@ export class Hello implements IReturn<HelloResponse>
     public constructor(init?: Partial<Hello>) { (Object as any).assign(this, init); }
     public createResponse() { return new HelloResponse(); }
     public getTypeName() { return 'Hello'; }
+    public getMethod() { return 'ANY'; }
+}
+
+// @Route("/todos", "GET")
+export class QueryTodos extends QueryData<Todo> implements IReturn<QueryResponse<Todo>>
+{
+    public id?: number;
+    public ids?: number[];
+    public textContains?: string;
+
+    public constructor(init?: Partial<QueryTodos>) { super(init); (Object as any).assign(this, init); }
+    public createResponse() { return new QueryResponse<Todo>(); }
+    public getTypeName() { return 'QueryTodos'; }
+    public getMethod() { return 'GET'; }
+}
+
+// @Route("/todos", "POST")
+export class CreateTodo implements IReturn<Todo>, IPost
+{
+    public text?: string;
+
+    public constructor(init?: Partial<CreateTodo>) { (Object as any).assign(this, init); }
+    public createResponse() { return new Todo(); }
+    public getTypeName() { return 'CreateTodo'; }
+    public getMethod() { return 'POST'; }
+}
+
+// @Route("/todos/{Id}", "PUT")
+export class UpdateTodo implements IReturn<Todo>, IPut
+{
+    public id?: number;
+    public text?: string;
+    public isFinished?: boolean;
+
+    public constructor(init?: Partial<UpdateTodo>) { (Object as any).assign(this, init); }
+    public createResponse() { return new Todo(); }
+    public getTypeName() { return 'UpdateTodo'; }
+    public getMethod() { return 'PUT'; }
+}
+
+// @Route("/todos/{Id}", "DELETE")
+export class DeleteTodo implements IReturnVoid, IDelete
+{
+    public id?: number;
+
+    public constructor(init?: Partial<DeleteTodo>) { (Object as any).assign(this, init); }
+    public createResponse() {}
+    public getTypeName() { return 'DeleteTodo'; }
+    public getMethod() { return 'DELETE'; }
+}
+
+// @Route("/todos", "DELETE")
+export class DeleteTodos implements IReturnVoid, IDelete
+{
+    public ids?: number[];
+
+    public constructor(init?: Partial<DeleteTodos>) { (Object as any).assign(this, init); }
+    public createResponse() {}
+    public getTypeName() { return 'DeleteTodos'; }
+    public getMethod() { return 'DELETE'; }
 }
 
 // @Route("/auth")
@@ -272,27 +522,6 @@ export class Authenticate implements IReturn<AuthenticateResponse>, IPost
     public getTypeName() { return 'Authenticate'; }
 }
 
-// @Route("/unassignroles")
-// @DataContract
-export class UnAssignRoles implements IReturn<UnAssignRolesResponse>, IPost
-{
-    // @DataMember(Order=1)
-    public userName?: string;
-
-    // @DataMember(Order=2)
-    public permissions?: string[];
-
-    // @DataMember(Order=3)
-    public roles?: string[];
-
-    // @DataMember(Order=4)
-    public meta?: { [index: string]: string; };
-
-    public constructor(init?: Partial<UnAssignRoles>) { (Object as any).assign(this, init); }
-    public createResponse() { return new UnAssignRolesResponse(); }
-    public getTypeName() { return 'UnAssignRoles'; }
-}
-
 // @Route("/assignroles")
 // @DataContract
 export class AssignRoles implements IReturn<AssignRolesResponse>, IPost
@@ -312,6 +541,64 @@ export class AssignRoles implements IReturn<AssignRolesResponse>, IPost
     public constructor(init?: Partial<AssignRoles>) { (Object as any).assign(this, init); }
     public createResponse() { return new AssignRolesResponse(); }
     public getTypeName() { return 'AssignRoles'; }
+    public getMethod() { return 'POST'; }
+}
+
+// @Route("/unassignroles")
+// @DataContract
+export class UnAssignRoles implements IReturn<UnAssignRolesResponse>, IPost
+{
+    // @DataMember(Order=1)
+    public userName?: string;
+
+    // @DataMember(Order=2)
+    public permissions?: string[];
+
+    // @DataMember(Order=3)
+    public roles?: string[];
+
+    // @DataMember(Order=4)
+    public meta?: { [index: string]: string; };
+
+    public constructor(init?: Partial<UnAssignRoles>) { (Object as any).assign(this, init); }
+    public createResponse() { return new UnAssignRolesResponse(); }
+    public getTypeName() { return 'UnAssignRoles'; }
+    public getMethod() { return 'POST'; }
+}
+
+// @Route("/session-to-token")
+// @DataContract
+export class ConvertSessionToToken implements IReturn<ConvertSessionToTokenResponse>, IPost
+{
+    // @DataMember(Order=1)
+    public preserveSession?: boolean;
+
+    // @DataMember(Order=2)
+    public meta?: { [index: string]: string; };
+
+    public constructor(init?: Partial<ConvertSessionToToken>) { (Object as any).assign(this, init); }
+    public createResponse() { return new ConvertSessionToTokenResponse(); }
+    public getTypeName() { return 'ConvertSessionToToken'; }
+    public getMethod() { return 'ANY'; }
+}
+
+// @Route("/access-token")
+// @DataContract
+export class GetAccessToken implements IReturn<GetAccessTokenResponse>, IPost
+{
+    // @DataMember(Order=1)
+    public refreshToken?: string;
+
+    // @DataMember(Order=2)
+    public useTokenCookie?: boolean;
+
+    // @DataMember(Order=3)
+    public meta?: { [index: string]: string; };
+
+    public constructor(init?: Partial<GetAccessToken>) { (Object as any).assign(this, init); }
+    public createResponse() { return new GetAccessTokenResponse(); }
+    public getTypeName() { return 'GetAccessToken'; }
+    public getMethod() { return 'ANY'; }
 }
 
 // @Route("/register")
@@ -351,5 +638,70 @@ export class Register implements IReturn<RegisterResponse>, IPost
     public constructor(init?: Partial<Register>) { (Object as any).assign(this, init); }
     public createResponse() { return new RegisterResponse(); }
     public getTypeName() { return 'Register'; }
+}
+
+export class QueryBookings extends QueryDb<Booking> implements IReturn<QueryResponse<Booking>>
+{
+    public id?: number;
+
+    public constructor(init?: Partial<QueryBookings>) { super(init); (Object as any).assign(this, init); }
+    public createResponse() { return new QueryResponse<Booking>(); }
+    public getTypeName() { return 'QueryBookings'; }
+    public getMethod() { return 'ANY'; }
+}
+
+// @ValidateRequest(Validator="HasRole(`Employee`)")
+export class CreateBooking implements IReturn<IdResponse>, ICreateDb<Booking>
+{
+    public name?: string;
+    public roomType?: RoomType;
+    // @Validate(Validator="GreaterThan(0)")
+    public roomNumber?: number;
+
+    public bookingStartDate?: string;
+    public bookingEndDate?: string;
+    // @Validate(Validator="GreaterThan(0)")
+    public cost?: number;
+
+    public notes?: string;
+
+    public constructor(init?: Partial<CreateBooking>) { (Object as any).assign(this, init); }
+    public createResponse() { return new IdResponse(); }
+    public getTypeName() { return 'CreateBooking'; }
+    public getMethod() { return 'ANY'; }
+}
+
+// @ValidateRequest(Validator="HasRole(`Employee`)")
+export class UpdateBooking implements IReturn<IdResponse>, IPatchDb<Booking>
+{
+    public id?: number;
+    public name?: string;
+    public roomType?: RoomType;
+    // @Validate(Validator="GreaterThan(0)")
+    public roomNumber?: number;
+
+    public bookingStartDate?: string;
+    public bookingEndDate?: string;
+    // @Validate(Validator="GreaterThan(0)")
+    public cost?: number;
+
+    public notes?: string;
+    public cancelled?: boolean;
+
+    public constructor(init?: Partial<UpdateBooking>) { (Object as any).assign(this, init); }
+    public createResponse() { return new IdResponse(); }
+    public getTypeName() { return 'UpdateBooking'; }
+    public getMethod() { return 'ANY'; }
+}
+
+// @ValidateRequest(Validator="HasRole(`Manager`)")
+export class DeleteBooking implements IReturnVoid, IDeleteDb<Booking>
+{
+    public id?: number;
+
+    public constructor(init?: Partial<DeleteBooking>) { (Object as any).assign(this, init); }
+    public createResponse() {}
+    public getTypeName() { return 'DeleteBooking'; }
+    public getMethod() { return 'ANY'; }
 }
 

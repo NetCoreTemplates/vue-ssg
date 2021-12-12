@@ -1,5 +1,5 @@
 ---
-title: Hosting Costs
+title: App Hosting Costs
 ---
 
 <a href="https://jamstack.org">

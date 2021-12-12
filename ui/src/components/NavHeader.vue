@@ -21,7 +21,7 @@
               <NavLink href="/posts">Blog</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/todos">Todos</NavLink>
+              <NavLink href="/todomvc">Todos</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href="/features">Features</NavLink>
