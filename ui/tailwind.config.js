@@ -1,14 +1,10 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  mode: 'jit', // in preview: https://tailwindcss.com/docs/just-in-time-mode
-  purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: [
-      "./src/**/*.{vue,md,ts,html}",
-    ]
-  },
-  darkMode: 'class', // or 'media' or 'class'
+  content: [
+    "./src/**/*.{vue,md,ts,html}",
+  ],
+  darkMode: 'class', // or 'media'
   theme: {
     extend: {
       // https://github.com/tailwindlabs/tailwindcss-typography
@@ -54,11 +50,6 @@ module.exports = {
           }
         },
       }),      
-    },
-  },
-  variants: {
-    extend: {
-      opacity: ['disabled'],
     },
   },
   plugins: [
