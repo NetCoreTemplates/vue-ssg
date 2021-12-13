@@ -10,7 +10,6 @@ export const useTodosStore = defineStore('todos', () => {
     const todos = ref<Todo[]>([])
     const newTodo = ref("")
     const filter = ref<Filter>('all')
-    //const nextId = ref(0)
     const errorStatus = ref<ResponseStatus|null>()
     
     // Getters
