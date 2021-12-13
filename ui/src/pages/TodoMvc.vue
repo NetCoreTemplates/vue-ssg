@@ -18,7 +18,7 @@
               <label :class="{'line-through':todo.isFinished}">{{ todo.text }}</label>
             </div>
             <div>
-              <MdiTrashCanOutline v-if="todo.isFinished" @click="store.removeTodo(todo.id)" />
+              <MdiTrashCanOutline v-if="todo.isFinished" class="cursor-pointer" @click="store.removeTodo(todo.id)" />
             </div>
           </div>
         </li>

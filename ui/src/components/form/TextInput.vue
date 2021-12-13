@@ -8,12 +8,11 @@
              :class="cls"
              :placeholder="placeholder ?? id"
              :value="modelValue"
-             @input="$emit('update:modelValue', $event.target.value)"
+             @input="$emit('update:modelValue', value($event.target))"
              :aria-invalid="errorField != null"
              :aria-describedby="`${id}-error`"
              v-bind="remaining">
       <div v-if="errorField" class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-        <!-- Heroicon name: solid/exclamation-circle -->
         <svg class="h-5 w-5 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
           <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
         </svg>
@@ -29,8 +28,10 @@ import { errorResponse, humanize, ResponseStatus, toPascalCase } from "@services
 import { computed, useAttrs } from "vue"
 import { remainingAttrs } from "@/utils"
 
+const value = (e:EventTarget|null) => (e as HTMLInputElement).value //workaround IDE type-check error
+
 const props = withDefaults(defineProps<{
-  status?: ResponseStatus
+  status?: ResponseStatus|null
   id: string
   type?: string
   label?: string

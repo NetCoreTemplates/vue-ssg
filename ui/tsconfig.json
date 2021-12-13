@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "module": "ESNext",
     "target": "es2016",
-    "lib": ["DOM", "ESNext"],
+    "lib": [ "esnext", "dom" ],
     "strict": true,
     "esModuleInterop": true,
     "incremental": false,

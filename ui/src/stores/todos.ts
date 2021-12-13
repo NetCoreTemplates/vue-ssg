@@ -40,7 +40,7 @@ export const useTodosStore = defineStore('todos', () => {
             errorStatus.value = apiResult.errorStatus
         await refreshTodos()
     }
-    const removeTodo = async (id: number) => {
+    const removeTodo = async (id?: number) => {
         todos.value = todos.value.filter(x => x.id != id)
         let apiResult = await client.api(new DeleteTodo({ id }))
         errorStatus.value = apiResult.errorStatus
@@ -54,7 +54,7 @@ export const useTodosStore = defineStore('todos', () => {
         errorStatus.value = apiResult.errorStatus
         await refreshTodos()
     }
-    const toggleTodo = async (id: number) => { 
+    const toggleTodo = async (id?: number) => {
         const todo = todos.value.find(x => x.id == id)!
         todo.isFinished = !todo.isFinished
         let apiResult = await client.api(new UpdateTodo(todo))
