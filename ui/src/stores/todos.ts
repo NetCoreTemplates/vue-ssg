@@ -11,7 +11,7 @@ export const useTodosStore = defineStore('todos', () => {
     const newTodo = ref("")
     const filter = ref<Filter>('all')
     const error = ref<ResponseStatus|null>()
-    
+
     // Getters
     const finishedTodos = computed(() => todos.value.filter(x => x.isFinished))
     const unfinishedTodos = computed(() => todos.value.filter(x => !x.isFinished))
@@ -27,8 +27,6 @@ export const useTodosStore = defineStore('todos', () => {
         const api = await client.api(new QueryTodos())
         if (api.succeeded) {
             todos.value = api.response!.results ?? []
-        } else {
-            error.value = api.error
         }
     }
     const addTodo = async () => {
