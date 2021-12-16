@@ -10,7 +10,7 @@ export const useTodosStore = defineStore('todos', () => {
     const todos = ref<Todo[]>([])
     const newTodo = ref("")
     const filter = ref<Filter>('all')
-    const errorStatus = ref<ResponseStatus|null>()
+    const error = ref<ResponseStatus|null>()
     
     // Getters
     const finishedTodos = computed(() => todos.value.filter(x => x.isFinished))
@@ -22,48 +22,44 @@ export const useTodosStore = defineStore('todos', () => {
             : todos.value)
 
     // Actions
-    const refreshTodos = async () => {
-        const apiResult = await client.api(new QueryTodos())
-        if (apiResult.isSuccess) {
-            todos.value = apiResult.response!.results ?? []
+    const refreshTodos = async (errorStatus?:ResponseStatus) => {
+        error.value = errorStatus
+        const api = await client.api(new QueryTodos())
+        if (api.succeeded) {
+            todos.value = api.response!.results ?? []
         } else {
-            errorStatus.value = apiResult.errorStatus
+            error.value = api.error
         }
     }
     const addTodo = async () => {
         todos.value.push(new Todo({ text: newTodo.value }))
-        let apiResult = await client.api(new CreateTodo({ text: newTodo.value }))
-        if (apiResult.isSuccess)
+        let api = await client.api(new CreateTodo({ text: newTodo.value }))
+        if (api.succeeded)
             newTodo.value = ''
-        else
-            errorStatus.value = apiResult.errorStatus
-        await refreshTodos()
+        await refreshTodos(api.error)
     }
     const removeTodo = async (id?: number) => {
         todos.value = todos.value.filter(x => x.id != id)
-        let apiResult = await client.api(new DeleteTodo({ id }))
-        errorStatus.value = apiResult.errorStatus
-        await refreshTodos()
+        let api = await client.api(new DeleteTodo({ id }))
+        await refreshTodos(api.error)
     }
     const removeFinishedTodos = async () => {
         let ids = todos.value.filter(x => x.isFinished).map(x => x.id!)
         if (ids.length == 0) return
         todos.value = todos.value.filter(x => !x.isFinished)
-        let apiResult = await client.api(new DeleteTodos({ ids }))
-        errorStatus.value = apiResult.errorStatus
-        await refreshTodos()
+        let api = await client.api(new DeleteTodos({ ids }))
+        await refreshTodos(api.error)
     }
     const toggleTodo = async (id?: number) => {
         const todo = todos.value.find(x => x.id == id)!
         todo.isFinished = !todo.isFinished
-        let apiResult = await client.api(new UpdateTodo(todo))
-        errorStatus.value = apiResult.errorStatus
-        await refreshTodos()
+        let api = await client.api(new UpdateTodo(todo))
+        await refreshTodos(api.error)
     }
     const changeFilter = (value:Filter) => filter.value = value
 
     return {
-        errorStatus,
+        errorStatus: error,
         newTodo,
         filter,
         finishedTodos,
