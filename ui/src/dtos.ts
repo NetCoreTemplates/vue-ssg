@@ -1,5 +1,5 @@
 /* Options:
-Date: 2021-12-13 00:26:32
+Date: 2021-12-16 22:41:27
 Version: 5.133
 Tip: To override a DTO option, remove "//" prefix before updating
 BaseUrl: https://localhost:5001
@@ -393,7 +393,7 @@ export class Hello implements IReturn<HelloResponse>
     public constructor(init?: Partial<Hello>) { (Object as any).assign(this, init); }
     public createResponse() { return new HelloResponse(); }
     public getTypeName() { return 'Hello'; }
-    public getMethod() { return 'ANY'; }
+    public getMethod() { return 'POST'; }
 }
 
 // @Route("/todos", "GET")
@@ -520,6 +520,7 @@ export class Authenticate implements IReturn<AuthenticateResponse>, IPost
     public constructor(init?: Partial<Authenticate>) { (Object as any).assign(this, init); }
     public createResponse() { return new AuthenticateResponse(); }
     public getTypeName() { return 'Authenticate'; }
+    public getMethod() { return 'POST'; }
 }
 
 // @Route("/assignroles")
@@ -579,7 +580,7 @@ export class ConvertSessionToToken implements IReturn<ConvertSessionToTokenRespo
     public constructor(init?: Partial<ConvertSessionToToken>) { (Object as any).assign(this, init); }
     public createResponse() { return new ConvertSessionToTokenResponse(); }
     public getTypeName() { return 'ConvertSessionToToken'; }
-    public getMethod() { return 'ANY'; }
+    public getMethod() { return 'POST'; }
 }
 
 // @Route("/access-token")
@@ -598,7 +599,7 @@ export class GetAccessToken implements IReturn<GetAccessTokenResponse>, IPost
     public constructor(init?: Partial<GetAccessToken>) { (Object as any).assign(this, init); }
     public createResponse() { return new GetAccessTokenResponse(); }
     public getTypeName() { return 'GetAccessToken'; }
-    public getMethod() { return 'ANY'; }
+    public getMethod() { return 'POST'; }
 }
 
 // @Route("/register")
@@ -638,6 +639,7 @@ export class Register implements IReturn<RegisterResponse>, IPost
     public constructor(init?: Partial<Register>) { (Object as any).assign(this, init); }
     public createResponse() { return new RegisterResponse(); }
     public getTypeName() { return 'Register'; }
+    public getMethod() { return 'POST'; }
 }
 
 export class QueryBookings extends QueryDb<Booking> implements IReturn<QueryResponse<Booking>>
@@ -647,7 +649,7 @@ export class QueryBookings extends QueryDb<Booking> implements IReturn<QueryResp
     public constructor(init?: Partial<QueryBookings>) { super(init); (Object as any).assign(this, init); }
     public createResponse() { return new QueryResponse<Booking>(); }
     public getTypeName() { return 'QueryBookings'; }
-    public getMethod() { return 'ANY'; }
+    public getMethod() { return 'GET'; }
 }
 
 // @ValidateRequest(Validator="HasRole(`Employee`)")
@@ -668,7 +670,7 @@ export class CreateBooking implements IReturn<IdResponse>, ICreateDb<Booking>
     public constructor(init?: Partial<CreateBooking>) { (Object as any).assign(this, init); }
     public createResponse() { return new IdResponse(); }
     public getTypeName() { return 'CreateBooking'; }
-    public getMethod() { return 'ANY'; }
+    public getMethod() { return 'POST'; }
 }
 
 // @ValidateRequest(Validator="HasRole(`Employee`)")
@@ -691,7 +693,7 @@ export class UpdateBooking implements IReturn<IdResponse>, IPatchDb<Booking>
     public constructor(init?: Partial<UpdateBooking>) { (Object as any).assign(this, init); }
     public createResponse() { return new IdResponse(); }
     public getTypeName() { return 'UpdateBooking'; }
-    public getMethod() { return 'ANY'; }
+    public getMethod() { return 'PATCH'; }
 }
 
 // @ValidateRequest(Validator="HasRole(`Manager`)")
@@ -702,6 +704,6 @@ export class DeleteBooking implements IReturnVoid, IDeleteDb<Booking>
     public constructor(init?: Partial<DeleteBooking>) { (Object as any).assign(this, init); }
     public createResponse() {}
     public getTypeName() { return 'DeleteBooking'; }
-    public getMethod() { return 'ANY'; }
+    public getMethod() { return 'DELETE'; }
 }
 
