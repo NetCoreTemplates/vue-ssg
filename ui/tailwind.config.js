@@ -28,7 +28,6 @@ module.exports = {
             'code::after': {
               content: '""'
             },
-
             maxWidth: '65ch',
             color: 'inherit',
             a: {
