@@ -2,7 +2,7 @@
   <AppPage title="Todos Application" class="max-w-xl">
 
     <div class="mb-3">
-      <TextInput :status="store.errorStatus" id="Text" v-model="store.newTodo" placeholder="What needs to be done?" label=""
+      <TextInput :status="store.error" id="Text" v-model="store.newTodo" placeholder="What needs to be done?" label=""
                  @keyup.enter.stop="store.addTodo()" />
     </div>
 

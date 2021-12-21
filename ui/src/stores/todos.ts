@@ -57,7 +57,7 @@ export const useTodosStore = defineStore('todos', () => {
     const changeFilter = (value:Filter) => filter.value = value
 
     return {
-        errorStatus: error,
+        error,
         newTodo,
         filter,
         finishedTodos,
