@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import AppBreadcrumb from "@/components/AppBreadcrumb.vue";
+import AppBreadcrumb from "@/components/AppBreadcrumb.vue"
 import { useRouter } from "vue-router"
 
 

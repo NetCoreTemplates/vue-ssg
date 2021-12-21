@@ -46,7 +46,7 @@
 
 <script setup lang="ts">
 import ShellCommand from "@/components/ShellCommand.vue"
-import { ref } from "vue";
+import { ref } from "vue"
 
 const project = ref('ProjectName')
 const resolvePath = (path:string) => navigator.userAgent.indexOf("Win") >= 0 ? path.replace(/\//g,'\\') : path

@@ -67,7 +67,7 @@
 import { h, SetupContext } from "vue"
 import { Filter, useTodosStore } from "@/stores/todos"
 import AppPage from "@/components/AppPage.vue"
-import TextInput from "@/components/form/TextInput.vue";
+import TextInput from "@/components/form/TextInput.vue"
 
 const store = useTodosStore()
 store.refreshTodos()
@@ -84,6 +84,6 @@ const FilterTab = (props:{ filter:Filter }, context:SetupContext) => {
       e.preventDefault()
       store.changeFilter(props.filter)
     }
-  }, context.slots);
+  }, context.slots)
 }
 </script>
