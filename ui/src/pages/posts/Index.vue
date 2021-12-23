@@ -21,7 +21,6 @@
 import AppBreadcrumb from "@/components/AppBreadcrumb.vue"
 import { useRouter } from "vue-router"
 
-
 type FrontMatter = {
   title: string
   summary?: string
@@ -33,7 +32,5 @@ const postRoutes = router.getRoutes()
     .filter(r => r.path.startsWith("/posts/") && r.meta?.frontmatter)
     .map(r => ({ path: r.path, name: r.name, frontmatter: (r.meta as any)?.frontmatter as FrontMatter }))
     .sort((a, b) => (b.frontmatter.date ?? "")?.localeCompare(a.frontmatter.date ?? ""))
-
-console.log(postRoutes)
 
 </script>

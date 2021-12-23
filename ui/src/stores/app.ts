@@ -8,7 +8,8 @@ export const useAppStore = defineStore('app', () => {
     const error = ref<ResponseStatus|null>()
     const metadata = ref<MetadataTypes|undefined>()
     const types = computed(() => metadata.value?.types ?? [])
-    
+    const loaded = computed(() => metadata.value != null)
+
     const load = async (force?:boolean) => {
         if (metadata.value && !force) return
         loading.value = true
@@ -24,11 +25,15 @@ export const useAppStore = defineStore('app', () => {
     
     const getType = (name:string) => metadata.value?.types?.find(x => x.name?.toLowerCase() == name.toLowerCase())
     
-    const getEnumOptions = (name:string) => {
+    const enumOptions = (name:string) => {
         let to:{[key:string]: any} = {}
         let type = getType(name)
-        if (type && type.isEnum) {
-            type.enumNames?.forEach(x => to[x] = x)
+        if (type && type.isEnum && type.enumNames != null) {
+            for (let i=0; i<type.enumNames.length; i++) {
+                const name = type.enumNames[i] 
+                const key = (type.enumValues != null ? type.enumValues[i] : null) ?? name
+                to[key] = name
+            }
         }
         return to
     }
@@ -38,9 +43,10 @@ export const useAppStore = defineStore('app', () => {
         loading,
         metadata,
         types,
+        loaded,
         load,
         getType,
-        getEnumOptions,
+        enumOptions,
     }
 })
 

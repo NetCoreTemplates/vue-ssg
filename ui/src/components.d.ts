@@ -35,6 +35,7 @@ declare module 'vue' {
     LogosVue: typeof import('~icons/logos/vue')['default']
     MarkdownPage: typeof import('./components/MarkdownPage.vue')['default']
     MdiAccountCircle: typeof import('~icons/mdi/account-circle')['default']
+    MdiArrowLeftThin: typeof import('~icons/mdi/arrow-left-thin')['default']
     MdiCached: typeof import('~icons/mdi/cached')['default']
     MdiCheck: typeof import('~icons/mdi/check')['default']
     MdiCheckboxBlankCircleOutline: typeof import('~icons/mdi/checkbox-blank-circle-outline')['default']

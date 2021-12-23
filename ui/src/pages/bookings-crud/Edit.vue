@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-span-6 sm:col-span-3">
-              <SelectInput :status="error" id="roomType" v-model="request.roomType" :options="app.getEnumOptions('RoomType')" />
+              <SelectInput :status="error" id="roomType" v-model="request.roomType" :options="app.enumOptions('RoomType')" />
             </div>
 
             <div class="col-span-6 sm:col-span-3">
@@ -69,7 +69,7 @@ import ConfirmDelete from "@/components/form/ConfirmDelete.vue"
 import SrcLink from "@/components/SrcLink.vue"
 
 import { ResponseStatus } from "@servicestack/client"
-import { DeleteBooking, QueryBookings, RoomType, UpdateBooking } from "@/dtos"
+import { DeleteBooking, QueryBookings, UpdateBooking } from "@/dtos"
 import { useAppStore } from "@/stores/app"
 import { sanitizeForUi } from "@/utils"
 import { client } from "@/api"

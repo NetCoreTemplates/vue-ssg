@@ -11,8 +11,10 @@ useHead({
   ],
 })
 
-let store = useAppStore()
-store.load()
+if (!import.meta.env.SSR) {
+  let store = useAppStore()
+  store.load()
+}
 </script>
 
 <template>
