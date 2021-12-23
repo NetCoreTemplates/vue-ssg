@@ -82,7 +82,7 @@ const onSubmit = async (e: Event) => {
     autoLogin
   } = serializeToObject(e.currentTarget as HTMLFormElement)
   if (password !== confirmPassword) {
-    client.addFieldError({ fieldName:'confirmPassword', message:'Passwords do not match' })
+    client.setError({ fieldName:'confirmPassword', message:'Passwords do not match' })
     return
   }
 

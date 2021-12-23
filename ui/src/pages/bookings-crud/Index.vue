@@ -118,7 +118,7 @@ import { Booking, QueryBookings } from "@/dtos"
 import { client } from "@/api"
 
 const newBooking = ref<boolean>(false)
-const editBookingId = ref<number|null>()
+const editBookingId = ref<number|undefined>()
 
 const expandAbout = ref<boolean>(false)
 
@@ -135,7 +135,7 @@ onMounted(async () => await refreshBookings())
 
 const reset = (args:{ newBooking?: boolean, editBookingId?:number } = {}) => {
   newBooking.value = args.newBooking ?? false
-  editBookingId.value = args.editBookingId ?? null
+  editBookingId.value = args.editBookingId ?? undefined
 }
 
 const onDone = () => {
