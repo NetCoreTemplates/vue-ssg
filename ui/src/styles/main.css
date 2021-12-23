@@ -35,6 +35,17 @@ body,
   font-size: 0.9em;
 }
 
+.youtube {
+  width: 448px;
+  height: 252px;
+}
+@media (min-width: 640px) {
+  .youtube {
+    width: 761px;
+    height: 428px;
+  }
+}
+
 ::-webkit-scrollbar{width:8px;height:8px}
 ::-webkit-scrollbar-thumb{background-color:#f9fafb}
 
@@ -69,7 +80,7 @@ html.dark .bg-gray-50, html.dark .bg-red-50 {
   background: #273142;
 }
 
-html.dark pre, html.dark input {
+html.dark pre, html.dark input, html.dark textarea, html.dark select {
   border: 1px solid #313d4f;
   background-color: #222c3c;
 }
@@ -108,8 +119,11 @@ html.dark a.bg-purple-500:hover {
   background-color: rgba(59, 130, 246, .5);
 }
 
-html.dark .text-gray-700, html.dark input {
+html.dark .text-gray-700, html.dark input, html.dark textarea, html.dark select, html.dark legend {
   color: rgb(243, 244, 246);
+}
+html.dark input[type=checkbox] {
+  color: rgb(30, 64, 175);
 }
 html.dark .text-black {
   color: #fff
