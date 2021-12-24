@@ -20,8 +20,10 @@ import { Ref } from "vue"
 
 declare var API_URL:string //defined in vite.apply.ts
 
-export const client = new JsonServiceClient(API_URL)
-    .useBasePath("/api")
+export const client = new JsonServiceClient(API_URL).apply(c => {
+    c.basePath = "/api"
+    c.headers = new Headers() //avoid pre-flight CORS requests
+})
 
 export type ApiState = {
     loading: Ref<boolean>,
