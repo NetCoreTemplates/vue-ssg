@@ -10,7 +10,7 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@servicestack/client": "^1.1.19",
+    "@servicestack/client": "^1.1.20",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/typography": "^0.5.0",
     "@vueuse/core": "^7.3.0",
