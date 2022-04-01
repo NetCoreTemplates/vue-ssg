@@ -1,0 +1,311 @@
+{
+  "vite/modulepreload-polyfill": [],
+  "\u0000commonjsHelpers.js": [],
+  "\u0000/home/runner/work/vue-ssg/vue-ssg/ui/node_modules/nprogress/nprogress.js?commonjs-module": [],
+  "node_modules/nprogress/nprogress.js": [],
+  "src/modules/nprogress.ts": [],
+  "node_modules/@vue/shared/dist/shared.esm-bundler.js": [],
+  "node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [],
+  "node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [],
+  "node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [],
+  "node_modules/pinia/node_modules/vue-demi/lib/index.mjs": [],
+  "node_modules/pinia/dist/pinia.esm-browser.js": [],
+  "src/modules/pinia.ts": [],
+  "src/styles/index.css": [],
+  "src/styles/main.css": [],
+  "node_modules/vue-router/dist/vue-router.esm-bundler.js": [],
+  "node_modules/@vueuse/head/dist/index.mjs": [],
+  "node_modules/vite-ssg/dist/chunks/state.mjs": [],
+  "node_modules/vite-ssg/dist/chunks/ClientOnly.mjs": [],
+  "node_modules/vite-ssg/dist/index.mjs": [],
+  "vite/preload-helper": [],
+  "~icons/carbon/sun": [],
+  "~icons/carbon/moon": [],
+  "~icons/mdi/currency-usd": [],
+  "../../../../../../assets/img/logo.svg": [],
+  "\u0000/home/runner/work/vue-ssg/vue-ssg/ui/node_modules/@servicestack/client/dist/index.js?commonjs-exports": [],
+  "node_modules/@servicestack/client/dist/index.js": [],
+  "src/dtos.ts": [],
+  "node_modules/swrv/esm/lib/hash.js": [],
+  "node_modules/swrv/esm/cache/index.js": [],
+  "node_modules/swrv/esm/lib/web-preset.js": [],
+  "node_modules/swrv/esm/use-swrv.js": [],
+  "src/api.ts": [],
+  "src/auth.ts": [],
+  "src/components/NavItem.vue": [],
+  "plugin-vue:export-helper": [],
+  "src/components/NavLink.vue": [],
+  "src/components/form/SecondaryButton.vue": [],
+  "src/components/form/PrimaryButton.vue": [],
+  "node_modules/@vueuse/core/node_modules/@vueuse/shared/index.mjs": [],
+  "node_modules/@vueuse/core/index.mjs": [],
+  "src/composables/dark.ts": [],
+  "src/components/NavHeader.vue": [],
+  "src/components/NavFooter.vue": [],
+  "src/layouts/default.vue?vue&type=style&index=0&lang.css": [],
+  "src/layouts/default.vue": [],
+  "../../../../../../@vite-plugin-vue-layouts/generated-layouts": [],
+  "../../../../../../@vite-plugin-pages/generated-pages": [],
+  "src/App.vue": [],
+  "src/routing.ts": [],
+  "src/main.ts": [],
+  "index.html": [],
+  "empty.1a8598c7.js": [],
+  "Admin.ab059010.js": [],
+  "Forbidden.7935fc2d.js": [],
+  "Index.9f8caa28.js": [
+    "/assets/Index.a11d1f49.css"
+  ],
+  "Profile.41101560.js": [],
+  "Signin.fb771155.js": [],
+  "Signup.1d7b322f.js": [],
+  "TodoMvc.6de9b79a.js": [],
+  "_...all_.cb5531ca.js": [],
+  "features.af39bad4.js": [],
+  "hosting.9e1b483e.js": [],
+  "Create.9d23903a.js": [],
+  "Edit.6462681c.js": [],
+  "Index.76558370.js": [],
+  "Index.aa5306f2.js": [],
+  "deploy.9fe36ac1.js": [],
+  "rider.c430c8b6.js": [],
+  "typography.e9f4a883.js": [],
+  "vs.e7ddff2f.js": [],
+  "src/layouts/empty.vue": [
+    "/assets/empty.1a8598c7.js"
+  ],
+  "~icons/mdi/shield-account": [
+    "/assets/Admin.ab059010.js"
+  ],
+  "src/pages/Admin.vue": [
+    "/assets/Admin.ab059010.js"
+  ],
+  "src/components/AppPage.vue": [
+    "/assets/AppPage.f7a9bb81.js"
+  ],
+  "~icons/mdi/chevron-right": [
+    "/assets/AppBreadcrumb.eb989f68.js"
+  ],
+  "src/components/AppBreadcrumb.vue": [
+    "/assets/AppBreadcrumb.eb989f68.js"
+  ],
+  "~icons/mdi/home": [
+    "/assets/home.cd74b42d.js"
+  ],
+  "src/pages/Forbidden.vue": [
+    "/assets/Forbidden.7935fc2d.js"
+  ],
+  "../../../../../../@vite-plugin-pages/route-block": [
+    "/assets/route-block.7fdbc26a.js"
+  ],
+  "~icons/carbon/checkmark-outline-warning": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "~icons/mdi/shield-lock-outline": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "~icons/simple-icons/codeclimate": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "~icons/ic/round-settings-input-component": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "~icons/ic/round-auto-awesome-mosaic": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "~icons/carbon/document-export": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "~icons/mdi/cached": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "~icons/line-md/iconify2": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "~icons/simple-icons/markdown": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "~icons/octicon/cpu16": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "~icons/logos/typescript-icon": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "~icons/logos/vitejs": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "src/components/HelloApi.vue": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "~icons/mdi/check": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "src/components/ShellCommand.vue?vue&type=style&index=0&scoped=true&lang.css": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "src/components/ShellCommand.vue": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "src/components/GettingStarted.vue": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "src/pages/Index.vue": [
+    "/assets/Index.9f8caa28.js",
+    "/assets/Index.a11d1f49.css"
+  ],
+  "~icons/noto/pineapple": [
+    "/assets/pineapple.b78267b5.js"
+  ],
+  "~icons/logos/tailwindcss-icon": [
+    "/assets/tailwindcss-icon.6f7f82f6.js"
+  ],
+  "~icons/logos/vue": [
+    "/assets/vue.5f830a1e.js"
+  ],
+  "~icons/mdi/account-circle": [
+    "/assets/Profile.41101560.js"
+  ],
+  "src/pages/Profile.vue": [
+    "/assets/Profile.41101560.js"
+  ],
+  "src/pages/Signin.vue": [
+    "/assets/Signin.fb771155.js"
+  ],
+  "~icons/mdi/close-circle": [
+    "/assets/ErrorSummary.162c609a.js"
+  ],
+  "src/components/form/ErrorSummary.vue": [
+    "/assets/ErrorSummary.162c609a.js"
+  ],
+  "src/components/form/TextInput.vue": [
+    "/assets/TextInput.500e5ad6.js"
+  ],
+  "src/components/form/Checkbox.vue": [
+    "/assets/FormLoading.a7893322.js"
+  ],
+  "src/components/form/FormLoading.vue": [
+    "/assets/FormLoading.a7893322.js"
+  ],
+  "src/pages/Signup.vue": [
+    "/assets/Signup.1d7b322f.js"
+  ],
+  "~icons/mdi/trash-can-outline": [
+    "/assets/TodoMvc.6de9b79a.js"
+  ],
+  "~icons/mdi/checkbox-blank-circle-outline": [
+    "/assets/TodoMvc.6de9b79a.js"
+  ],
+  "~icons/mdi/check-circle": [
+    "/assets/TodoMvc.6de9b79a.js"
+  ],
+  "src/stores/todos.ts": [
+    "/assets/TodoMvc.6de9b79a.js"
+  ],
+  "src/pages/TodoMvc.vue": [
+    "/assets/TodoMvc.6de9b79a.js"
+  ],
+  "src/components/SrcLink.vue": [
+    "/assets/SrcLink.3b07b093.js"
+  ],
+  "~icons/mdi/arrow-left-thin": [
+    "/assets/_...all_.cb5531ca.js"
+  ],
+  "src/pages/[...all].vue": [
+    "/assets/_...all_.cb5531ca.js"
+  ],
+  "src/pages/features.md": [
+    "/assets/features.af39bad4.js"
+  ],
+  "src/components/MarkdownPage.vue": [
+    "/assets/MarkdownPage.08751bd7.js"
+  ],
+  "~icons/logos/digital-ocean": [
+    "/assets/hosting.9e1b483e.js"
+  ],
+  "~icons/emojione/money-with-wings": [
+    "/assets/hosting.9e1b483e.js"
+  ],
+  "~icons/logos/jamstack-icon": [
+    "/assets/hosting.9e1b483e.js"
+  ],
+  "src/pages/hosting.md": [
+    "/assets/hosting.9e1b483e.js"
+  ],
+  "src/pages/bookings-crud/Create.vue": [
+    "/assets/Create.9d23903a.js"
+  ],
+  "src/components/form/CloseButton.vue": [
+    "/assets/utils.7af49bae.js"
+  ],
+  "src/components/form/SelectInput.vue": [
+    "/assets/utils.7af49bae.js"
+  ],
+  "src/components/form/TextAreaInput.vue": [
+    "/assets/utils.7af49bae.js"
+  ],
+  "src/utils.ts": [
+    "/assets/utils.7af49bae.js"
+  ],
+  "src/components/form/ConfirmDelete.vue": [
+    "/assets/Edit.6462681c.js"
+  ],
+  "src/pages/bookings-crud/Edit.vue": [
+    "/assets/Edit.6462681c.js"
+  ],
+  "~icons/mdi/code-tags": [
+    "/assets/Index.76558370.js"
+  ],
+  "~icons/mdi/chevron-down": [
+    "/assets/Index.76558370.js"
+  ],
+  "~icons/mdi/square-edit-outline": [
+    "/assets/Index.76558370.js"
+  ],
+  "~icons/fluent/add-circle24-regular": [
+    "/assets/Index.76558370.js"
+  ],
+  "src/components/form/OutlineButton.vue": [
+    "/assets/Index.76558370.js"
+  ],
+  "src/pages/bookings-crud/Index.vue": [
+    "/assets/Index.76558370.js"
+  ],
+  "src/pages/posts/Index.vue": [
+    "/assets/Index.aa5306f2.js"
+  ],
+  "src/pages/posts/deploy.md": [
+    "/assets/deploy.9fe36ac1.js"
+  ],
+  "src/pages/posts/rider.md": [
+    "/assets/rider.c430c8b6.js"
+  ],
+  "src/pages/posts/typography.md": [
+    "/assets/typography.e9f4a883.js"
+  ],
+  "~icons/logos/visual-studio": [
+    "/assets/vs.e7ddff2f.js"
+  ],
+  "~icons/logos/visual-studio-code": [
+    "/assets/vs.e7ddff2f.js"
+  ],
+  "src/pages/posts/vs.md": [
+    "/assets/vs.e7ddff2f.js"
+  ]
+}

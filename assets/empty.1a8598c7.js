@@ -1,0 +1,1 @@
+import{_ as t,c,a as r,r as o,o as n}from"./app.b24c2a19.js";const s={},a={class:"h-screen px-4 text-black bg-white text-center flex flex-col items-center justify-center"};function _(i,l){const e=o("router-view");return n(),c("main",a,[r(e)])}var m=t(s,[["render",_]]);export{m as default};
