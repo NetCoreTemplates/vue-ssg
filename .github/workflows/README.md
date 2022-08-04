@@ -31,7 +31,7 @@ docker-compose -f ~/nginx-proxy-compose.yml up -d
 This will run an nginx reverse proxy along with a companion container that will watch for additional containers in the same docker network and attempt to initialize them with valid TLS certificates.
 
 ## GitHub Repository setup
-The `release.yml` assumes 6 secrets have been setup.
+The `release.yml` uses the following secrets.
 
 - DEPLOY_API - hostname used to SSH to your server. Should match URL used to access your app.
 - DEPLOY_CDN - hostname of where your static files will be hosted. This is optional, only used if you are deploying static front end separately to CDN.
