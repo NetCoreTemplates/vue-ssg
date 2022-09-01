@@ -1,4 +1,7 @@
 name: Release
+permissions:
+  packages: write
+  contents: write
 on:
   # Triggered on new GitHub Release
   release:
@@ -32,15 +35,18 @@ jobs:
         with:
           ref: refs/tags/${{ github.event.inputs.version }}
 
-      - name: Create Prod API and CDN URLs
-        run: |
-          echo "deploy_api=${{ secrets.DEPLOY_API }}" >> $GITHUB_ENV
-          echo "deploy_cdn=${{ secrets.DEPLOY_CDN }}" >> $GITHUB_ENV
-
       - name: Replace Prod API and CDN URLs
+        env:
+          deploy_api: ${{ secrets.DEPLOY_API }}
+          deploy_cdn: ${{ secrets.DEPLOY_CDN }}
         run: |
-          sed -i 's/$DEPLOY_API/${{ env.deploy_api }}/g' ./ui/vite.config.ts
-          [[ -f ./ui/post.build.js ]] && sed -i 's/$DEPLOY_API/${{ env.deploy_api }}/g;s/$DEPLOY_CDN/${{ env.deploy_cdn }}/g' ./ui/post.build.js
+          if [ -e ./.deploy/ci.prebuild.sh ]
+          then
+            chmod +x ./.deploy/ci.prebuild.sh
+            ./.deploy/ci.prebuild.sh
+          else
+            echo "Skipping CI prebuild"
+          fi
 
       - name: Setup node
         uses: actions/setup-node@v1
@@ -75,7 +81,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.CR_PAT }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       # Build and push new docker image, skip for manual redeploy other than 'latest'
       - name: Build and push Docker images
@@ -150,11 +156,27 @@ jobs:
           source: ".deploy/${{ github.event.repository.name }}-docker-compose.yml"
           target: "~/"
 
+      - name: Run remote db migrations
+        uses: appleboy/ssh-action@v0.1.4
+        env:
+          APPTOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ secrets.DEPLOY_USERNAME }}
+        with:
+          host: ${{ secrets.DEPLOY_API }}
+          username: ${{ secrets.DEPLOY_USERNAME }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: 22
+          envs: APPTOKEN,USERNAME
+          script: |
+            echo $APPTOKEN | docker login ghcr.io -u $USERNAME --password-stdin
+            docker-compose -f ~/.deploy/${{ github.event.repository.name }}-docker-compose.yml pull
+            docker-compose -f ~/.deploy/${{ github.event.repository.name }}-docker-compose.yml up ${{ github.event.repository.name }}-migration
+
       # Deploy Docker image with ServiceStack application using `docker compose up` remotely
       - name: remote docker-compose up via ssh
         uses: appleboy/ssh-action@v0.1.4
         env:
-          APPTOKEN: ${{ secrets.CR_PAT }}
+          APPTOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ secrets.DEPLOY_USERNAME }}
         with:
           host: ${{ secrets.DEPLOY_API }}
