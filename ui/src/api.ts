@@ -18,7 +18,7 @@ import { IResponse } from "swrv/dist/types"
 import useSWRV from "swrv"
 import { Ref } from "vue"
 
-declare var API_URL:string //defined in vite.apply.ts
+declare var API_URL:string //defined in vite.config.ts
 
 export const client = new JsonServiceClient(API_URL).apply(c => {
     c.basePath = "/api"
@@ -121,7 +121,7 @@ export function useApp() {
         let type = getType(name)
         if (type && type.isEnum && type.enumNames != null) {
             for (let i=0; i<type.enumNames.length; i++) {
-                const name = type.enumNames[i]
+                const name:string = type.enumNames[i]
                 const key = (type.enumValues != null ? type.enumValues[i] : null) ?? name
                 to[key] = name
             }

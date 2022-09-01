@@ -18,7 +18,7 @@ import Icons from "unplugin-icons/vite"
 import IconsResolver from "unplugin-icons/resolver"
 import Components from "unplugin-vue-components/vite"
 import AutoImport from "unplugin-auto-import/vite"
-import Markdown from "vite-plugin-md"
+import Markdown from 'vite-plugin-vue-markdown'
 import Inspect from "vite-plugin-inspect"
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -89,7 +89,8 @@ export default defineConfig(({ command, mode }) => {
               componentPrefix: '',
             }),
           ],
-          dts: 'src/components.d.ts', // auto-generated component type definitions
+          dts: true,
+          // dts: 'src/components.d.ts', // auto-generated component type definitions
         }),
 
         // https://github.com/antfu/unplugin-icons
@@ -97,7 +98,7 @@ export default defineConfig(({ command, mode }) => {
           autoInstall: true
         }),
 
-        // https://github.com/antfu/vite-plugin-md
+        // Enable Markdown Support https://github.com/mdit-vue/vite-plugin-vue-markdown
         Markdown({
           headEnabled: true,
           markdownItSetup(md) {
@@ -124,6 +125,7 @@ export default defineConfig(({ command, mode }) => {
       ssgOptions: {
         script: 'async',
         formatting: 'minify',
+        format: "cjs",
       },
 
       optimizeDeps: {

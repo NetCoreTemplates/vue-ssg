@@ -14,12 +14,12 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import { useRouter } from "vue-router"
-import AppBreadcrumb, { Crumb } from "@/components/AppBreadcrumb.vue"
+import AppBreadcrumb from "@/components/AppBreadcrumb.vue"
 
 type FrontMatter = {
   title: string
 }
 defineProps<{ frontmatter: FrontMatter }>()
 
-const crumbs = computed(() => useRouter().currentRoute.value.meta.crumbs as Crumb[])
+const crumbs = computed(() => useRouter().currentRoute.value.meta.crumbs)
 </script>

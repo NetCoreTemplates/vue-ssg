@@ -19,6 +19,6 @@ export const createApp = ViteSSG(
         configRouter(ctx.router)
         
         // install all modules under `modules/`
-        Object.values(import.meta.globEager('./modules/*.ts')).map(i => i.install?.(ctx))
+        Object.values(import.meta.globEager('./modules/*.ts')).map(i => (i as any).install?.(ctx))
     },
 )
