@@ -7,7 +7,11 @@
     "build:local": "vue-tsc --noEmit && vite-ssg build --mode development",
     "publish": "npm run build && dotnet publish ../api/MyApp/MyApp.csproj -c Release",
     "serve": "vite preview",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "postinstall": "cd ../api/MyApp && dotnet run --AppTasks=migrate",
+    "migrate": "cd ../api/MyApp && dotnet run MyApp.csproj --AppTasks=migrate",
+    "revert:last": "cd ../api/MyApp && dotnet run --AppTasks=migrate.revert:last",
+    "revert:all": "cd ../api/MyApp && dotnet run --AppTasks=migrate.revert:all"
   },
   "dependencies": {
     "@servicestack/client": "^1.1.21",
