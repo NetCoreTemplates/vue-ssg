@@ -15,11 +15,14 @@
 import { computed } from "vue"
 import { useRouter } from "vue-router"
 import AppBreadcrumb from "@/components/AppBreadcrumb.vue"
+import { Crumb } from "@/types"
 
 type FrontMatter = {
   title: string
 }
-defineProps<{ frontmatter: FrontMatter }>()
+defineProps<{ 
+  frontmatter: FrontMatter 
+}>()
 
-const crumbs = computed(() => useRouter().currentRoute.value.meta.crumbs)
+const crumbs = computed(() => useRouter().currentRoute.value.meta.crumbs as Crumb[])
 </script>

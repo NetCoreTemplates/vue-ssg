@@ -38,7 +38,6 @@ declare module '@vue/runtime-core' {
     MdiCheckCircle: typeof import('~icons/mdi/check-circle')['default']
     MdiChevronDown: typeof import('~icons/mdi/chevron-down')['default']
     MdiChevronRight: typeof import('~icons/mdi/chevron-right')['default']
-    MdiCloseCircle: typeof import('~icons/mdi/close-circle')['default']
     MdiCodeTags: typeof import('~icons/mdi/code-tags')['default']
     MdiCurrencyUsd: typeof import('~icons/mdi/currency-usd')['default']
     MdiHome: typeof import('~icons/mdi/home')['default']

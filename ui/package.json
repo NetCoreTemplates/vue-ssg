@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@servicestack/client": "^2.0.0",
-    "@servicestack/vue": "^3.0.11",
+    "@servicestack/vue": "^3.0.12",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
     "@vueuse/core": "^9.11.1",
