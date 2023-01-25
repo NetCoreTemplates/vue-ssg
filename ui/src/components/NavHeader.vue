@@ -68,8 +68,6 @@
 <script setup lang="ts">
 import NavItem from "@/components/NavItem.vue"
 import NavLink from "@/components/NavLink.vue"
-import SecondaryButton from "@/components/form/SecondaryButton.vue"
-import PrimaryButton from "@/components/form/PrimaryButton.vue"
 import { isDark, toggleDark } from "@/composables"
 
 import { signout } from "@/auth"
