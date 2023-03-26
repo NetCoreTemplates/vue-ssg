@@ -1,6 +1,6 @@
 <template>
   <AppPage title="Sign In" class="max-w-xl">
-    
+
     <form @submit.prevent="onSubmit">
       <div class="shadow overflow-hidden sm:rounded-md">
         <ErrorSummary except="userName,password,rememberMe"/>
@@ -13,7 +13,6 @@
         </div>
         <div class="pt-5 px-4 py-3 bg-gray-50 text-right sm:px-6">
           <div class="flex justify-end">
-            <FormLoading class="flex-1"/>
             <SecondaryButton href="/signup">Register New User</SecondaryButton>
             <PrimaryButton class="ml-3">Login</PrimaryButton>
           </div>
@@ -42,41 +41,45 @@
         </button>
       </span>
     </div>
-    
+
   </AppPage>
 </template>
 
 <script setup lang="ts">
 import AppPage from "@/components/AppPage.vue"
+
 import { ref, watchEffect, nextTick } from "vue"
 import { useRouter } from "vue-router"
 import { serializeToObject } from "@servicestack/client"
-import { useClient } from "@/api"
+import { useClient, useAuth } from "@servicestack/vue"
 import { Authenticate } from "@/dtos"
-import { auth, revalidate } from "@/auth"
+import { revalidate } from "@/auth"
 import { getRedirect } from "@/routing"
 
 const client = useClient()
+const { user, signIn } = useAuth()
 const username = ref('')
 const password = ref('')
 const router = useRouter()
 
-let stop = watchEffect(() => {
-  if (auth.value) {
+const stop = watchEffect(() => {
+  if (user.value) {
     router.push(getRedirect(router) ?? '/')
     nextTick(() => stop())
   }
 })
 
-const setUser = (email: string) => {
+function setUser(email: string) {
   username.value = email
   password.value = "p@55wOrd"
 }
 
-const onSubmit = async (e: Event) => {
+async function onSubmit(e: Event) {
   const { userName, password, rememberMe } = serializeToObject(e.currentTarget as HTMLFormElement)
   const api = await client.api(new Authenticate({ provider: 'credentials', userName, password, rememberMe }))
-  if (api.succeeded)
+  if (api.succeeded) {
+    signIn(api.response!)
     await revalidate()
+  }
 }
 </script>

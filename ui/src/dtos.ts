@@ -1,6 +1,6 @@
 /* Options:
-Date: 2021-12-16 22:41:27
-Version: 5.133
+Date: 2023-03-26 10:27:48
+Version: 6.71
 Tip: To override a DTO option, remove "//" prefix before updating
 BaseUrl: https://localhost:5001
 
@@ -134,6 +134,7 @@ export enum RoomType
     Suite = 'Suite',
 }
 
+/** @description Booking Details */
 export class Booking extends AuditBase
 {
     public id?: number;
@@ -195,8 +196,17 @@ export class HelloResponse
     public constructor(init?: Partial<HelloResponse>) { (Object as any).assign(this, init); }
 }
 
+export class Todo
+{
+    public id?: number;
+    public text?: string;
+    public isFinished?: boolean;
+
+    public constructor(init?: Partial<Todo>) { (Object as any).assign(this, init); }
+}
+
 // @DataContract
-export class QueryResponse<T>
+export class QueryResponse<Todo>
 {
     // @DataMember(Order=1)
     public offset?: number;
@@ -205,7 +215,7 @@ export class QueryResponse<T>
     public total?: number;
 
     // @DataMember(Order=3)
-    public results?: T[];
+    public results?: Todo[];
 
     // @DataMember(Order=4)
     public meta?: { [index: string]: string; };
@@ -213,16 +223,7 @@ export class QueryResponse<T>
     // @DataMember(Order=5)
     public responseStatus?: ResponseStatus;
 
-    public constructor(init?: Partial<QueryResponse<T>>) { (Object as any).assign(this, init); }
-}
-
-export class Todo
-{
-    public id?: number;
-    public text?: string;
-    public isFinished?: boolean;
-
-    public constructor(init?: Partial<Todo>) { (Object as any).assign(this, init); }
+    public constructor(init?: Partial<QueryResponse<Todo>>) { (Object as any).assign(this, init); }
 }
 
 // @DataContract
@@ -304,39 +305,6 @@ export class UnAssignRolesResponse
 }
 
 // @DataContract
-export class ConvertSessionToTokenResponse
-{
-    // @DataMember(Order=1)
-    public meta?: { [index: string]: string; };
-
-    // @DataMember(Order=2)
-    public accessToken?: string;
-
-    // @DataMember(Order=3)
-    public refreshToken?: string;
-
-    // @DataMember(Order=4)
-    public responseStatus?: ResponseStatus;
-
-    public constructor(init?: Partial<ConvertSessionToTokenResponse>) { (Object as any).assign(this, init); }
-}
-
-// @DataContract
-export class GetAccessTokenResponse
-{
-    // @DataMember(Order=1)
-    public accessToken?: string;
-
-    // @DataMember(Order=2)
-    public meta?: { [index: string]: string; };
-
-    // @DataMember(Order=3)
-    public responseStatus?: ResponseStatus;
-
-    public constructor(init?: Partial<GetAccessTokenResponse>) { (Object as any).assign(this, init); }
-}
-
-// @DataContract
 export class RegisterResponse implements IHasSessionId, IHasBearerToken
 {
     // @DataMember(Order=1)
@@ -391,9 +359,9 @@ export class Hello implements IReturn<HelloResponse>
     public name?: string;
 
     public constructor(init?: Partial<Hello>) { (Object as any).assign(this, init); }
-    public createResponse() { return new HelloResponse(); }
     public getTypeName() { return 'Hello'; }
     public getMethod() { return 'POST'; }
+    public createResponse() { return new HelloResponse(); }
 }
 
 // @Route("/todos", "GET")
@@ -404,33 +372,36 @@ export class QueryTodos extends QueryData<Todo> implements IReturn<QueryResponse
     public textContains?: string;
 
     public constructor(init?: Partial<QueryTodos>) { super(init); (Object as any).assign(this, init); }
-    public createResponse() { return new QueryResponse<Todo>(); }
     public getTypeName() { return 'QueryTodos'; }
     public getMethod() { return 'GET'; }
+    public createResponse() { return new QueryResponse<Todo>(); }
 }
 
 // @Route("/todos", "POST")
 export class CreateTodo implements IReturn<Todo>, IPost
 {
+    // @Validate(Validator="NotEmpty")
     public text?: string;
 
     public constructor(init?: Partial<CreateTodo>) { (Object as any).assign(this, init); }
-    public createResponse() { return new Todo(); }
     public getTypeName() { return 'CreateTodo'; }
     public getMethod() { return 'POST'; }
+    public createResponse() { return new Todo(); }
 }
 
 // @Route("/todos/{Id}", "PUT")
 export class UpdateTodo implements IReturn<Todo>, IPut
 {
     public id?: number;
+    // @Validate(Validator="NotEmpty")
     public text?: string;
+
     public isFinished?: boolean;
 
     public constructor(init?: Partial<UpdateTodo>) { (Object as any).assign(this, init); }
-    public createResponse() { return new Todo(); }
     public getTypeName() { return 'UpdateTodo'; }
     public getMethod() { return 'PUT'; }
+    public createResponse() { return new Todo(); }
 }
 
 // @Route("/todos/{Id}", "DELETE")
@@ -439,9 +410,9 @@ export class DeleteTodo implements IReturnVoid, IDelete
     public id?: number;
 
     public constructor(init?: Partial<DeleteTodo>) { (Object as any).assign(this, init); }
-    public createResponse() {}
     public getTypeName() { return 'DeleteTodo'; }
     public getMethod() { return 'DELETE'; }
+    public createResponse() {}
 }
 
 // @Route("/todos", "DELETE")
@@ -450,16 +421,19 @@ export class DeleteTodos implements IReturnVoid, IDelete
     public ids?: number[];
 
     public constructor(init?: Partial<DeleteTodos>) { (Object as any).assign(this, init); }
-    public createResponse() {}
     public getTypeName() { return 'DeleteTodos'; }
     public getMethod() { return 'DELETE'; }
+    public createResponse() {}
 }
 
-// @Route("/auth")
-// @Route("/auth/{provider}")
+/** @description Sign In */
+// @Route("/auth", "OPTIONS,GET,POST,DELETE")
+// @Route("/auth/{provider}", "OPTIONS,GET,POST,DELETE")
+// @Api(Description="Sign In")
 // @DataContract
 export class Authenticate implements IReturn<AuthenticateResponse>, IPost
 {
+    /** @description AuthProvider, e.g. credentials */
     // @DataMember(Order=1)
     public provider?: string;
 
@@ -502,9 +476,6 @@ export class Authenticate implements IReturn<AuthenticateResponse>, IPost
     // @DataMember(Order=15)
     public cnonce?: string;
 
-    // @DataMember(Order=16)
-    public useTokenCookie?: boolean;
-
     // @DataMember(Order=17)
     public accessToken?: string;
 
@@ -518,12 +489,12 @@ export class Authenticate implements IReturn<AuthenticateResponse>, IPost
     public meta?: { [index: string]: string; };
 
     public constructor(init?: Partial<Authenticate>) { (Object as any).assign(this, init); }
-    public createResponse() { return new AuthenticateResponse(); }
     public getTypeName() { return 'Authenticate'; }
     public getMethod() { return 'POST'; }
+    public createResponse() { return new AuthenticateResponse(); }
 }
 
-// @Route("/assignroles")
+// @Route("/assignroles", "POST")
 // @DataContract
 export class AssignRoles implements IReturn<AssignRolesResponse>, IPost
 {
@@ -540,12 +511,12 @@ export class AssignRoles implements IReturn<AssignRolesResponse>, IPost
     public meta?: { [index: string]: string; };
 
     public constructor(init?: Partial<AssignRoles>) { (Object as any).assign(this, init); }
-    public createResponse() { return new AssignRolesResponse(); }
     public getTypeName() { return 'AssignRoles'; }
     public getMethod() { return 'POST'; }
+    public createResponse() { return new AssignRolesResponse(); }
 }
 
-// @Route("/unassignroles")
+// @Route("/unassignroles", "POST")
 // @DataContract
 export class UnAssignRoles implements IReturn<UnAssignRolesResponse>, IPost
 {
@@ -562,47 +533,14 @@ export class UnAssignRoles implements IReturn<UnAssignRolesResponse>, IPost
     public meta?: { [index: string]: string; };
 
     public constructor(init?: Partial<UnAssignRoles>) { (Object as any).assign(this, init); }
-    public createResponse() { return new UnAssignRolesResponse(); }
     public getTypeName() { return 'UnAssignRoles'; }
     public getMethod() { return 'POST'; }
+    public createResponse() { return new UnAssignRolesResponse(); }
 }
 
-// @Route("/session-to-token")
-// @DataContract
-export class ConvertSessionToToken implements IReturn<ConvertSessionToTokenResponse>, IPost
-{
-    // @DataMember(Order=1)
-    public preserveSession?: boolean;
-
-    // @DataMember(Order=2)
-    public meta?: { [index: string]: string; };
-
-    public constructor(init?: Partial<ConvertSessionToToken>) { (Object as any).assign(this, init); }
-    public createResponse() { return new ConvertSessionToTokenResponse(); }
-    public getTypeName() { return 'ConvertSessionToToken'; }
-    public getMethod() { return 'POST'; }
-}
-
-// @Route("/access-token")
-// @DataContract
-export class GetAccessToken implements IReturn<GetAccessTokenResponse>, IPost
-{
-    // @DataMember(Order=1)
-    public refreshToken?: string;
-
-    // @DataMember(Order=2)
-    public useTokenCookie?: boolean;
-
-    // @DataMember(Order=3)
-    public meta?: { [index: string]: string; };
-
-    public constructor(init?: Partial<GetAccessToken>) { (Object as any).assign(this, init); }
-    public createResponse() { return new GetAccessTokenResponse(); }
-    public getTypeName() { return 'GetAccessToken'; }
-    public getMethod() { return 'POST'; }
-}
-
-// @Route("/register")
+/** @description Sign Up */
+// @Route("/register", "PUT,POST")
+// @Api(Description="Sign Up")
 // @DataContract
 export class Register implements IReturn<RegisterResponse>, IPost
 {
@@ -637,42 +575,52 @@ export class Register implements IReturn<RegisterResponse>, IPost
     public meta?: { [index: string]: string; };
 
     public constructor(init?: Partial<Register>) { (Object as any).assign(this, init); }
-    public createResponse() { return new RegisterResponse(); }
     public getTypeName() { return 'Register'; }
     public getMethod() { return 'POST'; }
+    public createResponse() { return new RegisterResponse(); }
 }
 
+/** @description Find Bookings */
+// @Route("/bookings", "GET")
+// @Route("/bookings/{Id}", "GET")
 export class QueryBookings extends QueryDb<Booking> implements IReturn<QueryResponse<Booking>>
 {
     public id?: number;
 
     public constructor(init?: Partial<QueryBookings>) { super(init); (Object as any).assign(this, init); }
-    public createResponse() { return new QueryResponse<Booking>(); }
     public getTypeName() { return 'QueryBookings'; }
     public getMethod() { return 'GET'; }
+    public createResponse() { return new QueryResponse<Booking>(); }
 }
 
+/** @description Create a new Booking */
+// @Route("/bookings", "POST")
 // @ValidateRequest(Validator="HasRole(`Employee`)")
 export class CreateBooking implements IReturn<IdResponse>, ICreateDb<Booking>
 {
+    /** @description Name this Booking is for */
+    // @Validate(Validator="NotEmpty")
     public name?: string;
+
     public roomType?: RoomType;
     // @Validate(Validator="GreaterThan(0)")
     public roomNumber?: number;
 
-    public bookingStartDate?: string;
-    public bookingEndDate?: string;
     // @Validate(Validator="GreaterThan(0)")
     public cost?: number;
 
+    public bookingStartDate?: string;
+    public bookingEndDate?: string;
     public notes?: string;
 
     public constructor(init?: Partial<CreateBooking>) { (Object as any).assign(this, init); }
-    public createResponse() { return new IdResponse(); }
     public getTypeName() { return 'CreateBooking'; }
     public getMethod() { return 'POST'; }
+    public createResponse() { return new IdResponse(); }
 }
 
+/** @description Update an existing Booking */
+// @Route("/booking/{Id}", "PATCH")
 // @ValidateRequest(Validator="HasRole(`Employee`)")
 export class UpdateBooking implements IReturn<IdResponse>, IPatchDb<Booking>
 {
@@ -682,28 +630,30 @@ export class UpdateBooking implements IReturn<IdResponse>, IPatchDb<Booking>
     // @Validate(Validator="GreaterThan(0)")
     public roomNumber?: number;
 
-    public bookingStartDate?: string;
-    public bookingEndDate?: string;
     // @Validate(Validator="GreaterThan(0)")
     public cost?: number;
 
+    public bookingStartDate?: string;
+    public bookingEndDate?: string;
     public notes?: string;
     public cancelled?: boolean;
 
     public constructor(init?: Partial<UpdateBooking>) { (Object as any).assign(this, init); }
-    public createResponse() { return new IdResponse(); }
     public getTypeName() { return 'UpdateBooking'; }
     public getMethod() { return 'PATCH'; }
+    public createResponse() { return new IdResponse(); }
 }
 
+/** @description Delete a Booking */
+// @Route("/booking/{Id}", "DELETE")
 // @ValidateRequest(Validator="HasRole(`Manager`)")
 export class DeleteBooking implements IReturnVoid, IDeleteDb<Booking>
 {
     public id?: number;
 
     public constructor(init?: Partial<DeleteBooking>) { (Object as any).assign(this, init); }
-    public createResponse() {}
     public getTypeName() { return 'DeleteBooking'; }
     public getMethod() { return 'DELETE'; }
+    public createResponse() {}
 }
 

@@ -17,7 +17,7 @@
             </div>
 
             <div class="col-span-6 sm:col-span-3">
-              <SelectInput id="roomType" v-model="request.roomType" :options="app.enumOptions('RoomType')" />
+              <SelectInput id="roomType" v-model="request.roomType" :options="enumOptions('RoomType')" />
             </div>
 
             <div class="col-span-6 sm:col-span-3">
@@ -47,7 +47,7 @@
           <div>
             <ConfirmDelete @delete="onDelete">Delete</ConfirmDelete>
           </div>
-          <SrcLink href="https://github.com/NetCoreTemplates/vue-vite/blob/main/ui/src/pages/bookings-crud/Edit.vue">
+          <SrcLink href="https://github.com/NetCoreTemplates/vue-ssg/blob/main/ui/src/pages/bookings-crud/Edit.vue">
             <LogosVue class="w-5 h-5 inline" />
           </SrcLink>
           <div><PrimaryButton>Update Booking</PrimaryButton></div>
@@ -63,7 +63,7 @@ import SrcLink from "@/components/SrcLink.vue"
 
 import { DeleteBooking, QueryBookings, UpdateBooking } from "@/dtos"
 import { sanitizeForUi } from "@/utils"
-import { useClient, useApp } from "@/api"
+import { useClient, useMetadata } from "@servicestack/vue"
 
 const props = defineProps<{
   id: number
@@ -75,8 +75,8 @@ const emit = defineEmits<{
 
 const visibleFields = "name,roomType,roomNumber,bookingStartDate,bookingEndDate,cost,notes"
 
-const app = useApp()
 const client = useClient()
+const { enumOptions } = useMetadata()
 
 const request = ref(new UpdateBooking())
 

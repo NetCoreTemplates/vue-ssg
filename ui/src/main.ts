@@ -8,6 +8,7 @@ import generatedRoutes from "~pages"
 
 import App from "@/App.vue"
 import { configRouter } from "@/routing"
+import { client } from "@/api"
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -17,6 +18,8 @@ export const createApp = ViteSSG(
     { routes },
     (ctx) => {
         configRouter(ctx.router)
+
+        ctx.app.provide('client',client)
         
         // install all modules under `modules/`
         Object.values(import.meta.globEager('./modules/*.ts')).map(i => (i as any).install?.(ctx))

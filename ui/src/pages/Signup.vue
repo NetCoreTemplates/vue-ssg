@@ -1,6 +1,6 @@
 <template>
   <AppPage title="Sign Up" class="max-w-xl">
-    
+
     <form @submit.prevent="onSubmit">
       <div class="shadow overflow-hidden sm:rounded-md">
         <ErrorSummary except="displayName,userName,password,confirmPassword,autoLogin"/>
@@ -31,7 +31,7 @@
       </button>
     </span>
     </div>
-    
+
   </AppPage>
 </template>
 
@@ -41,26 +41,27 @@ import AppPage from "@/components/AppPage.vue"
 import { ref, watchEffect, nextTick } from "vue"
 import { useRouter } from "vue-router"
 import { leftPart, rightPart, serializeToObject, toPascalCase } from "@servicestack/client"
-import { useClient } from "@/api"
+import { useClient, useAuth } from "@servicestack/vue"
 import { Register } from "@/dtos"
-import { auth, revalidate } from "@/auth"
+import { revalidate } from "@/auth"
 import { getRedirect } from "@/routing"
 
 const client = useClient()
+const { user } = useAuth()
 const displayName = ref("")
 const username = ref("")
 const password = ref("")
 const confirmPassword = ref("")
 const router = useRouter()
 
-let stop = watchEffect(() => {
-  if (auth.value) {
+const stop = watchEffect(() => {
+  if (user.value) {
     router.push(getRedirect(router) ?? '/')
     nextTick(stop)
   }
 })
 
-const setUser = (email: string) => {
+function setUser(email: string) {
   let first = leftPart(email, '@')
   let last = rightPart(leftPart(email, '.'), '@')
   displayName.value = toPascalCase(first) + ' ' + toPascalCase(last)
@@ -68,7 +69,7 @@ const setUser = (email: string) => {
   confirmPassword.value = password.value = 'p@55wOrd'
 }
 
-const onSubmit = async (e: Event) => {
+async function onSubmit(e: Event) {
   const {
     displayName,
     userName,
