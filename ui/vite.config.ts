@@ -28,9 +28,7 @@ const isProd = process.env.NODE_ENV === 'production'
 export default defineConfig(({ command, mode }) => {
 
     const buildLocal = command == 'build' && mode == 'development'
-    const API_URL = isProd ? DEPLOY_API : (USE_DEV_PROXY || buildLocal ? '' : DEV_API)
-
-    console.log('defineConfig', command, mode, buildLocal, API_URL)
+    const API_URL = USE_DEV_PROXY || buildLocal ? '' : isProd ? DEPLOY_API : DEV_API
   
     return ({
       resolve: {
