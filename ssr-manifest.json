@@ -81,21 +81,21 @@
   "src/auth.ts": [
   ],
   "src/components/AppBreadcrumb.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/AppBreadcrumb.vue_vue_type_script_setup_true_lang-4c0b6a40.js"
+    "/assets/AppBreadcrumb.vue_vue_type_script_setup_true_lang-d882372b.js"
   ],
   "src/components/AppPage.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/AppPage.vue_vue_type_script_setup_true_lang-cd466bf1.js"
+    "/assets/AppPage.vue_vue_type_script_setup_true_lang-c79dd073.js"
   ],
   "src/components/GettingStarted.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "src/components/HelloApi.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "src/components/MarkdownPage.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/MarkdownPage.vue_vue_type_script_setup_true_lang-92626827.js"
+    "/assets/MarkdownPage.vue_vue_type_script_setup_true_lang-5fc688b4.js"
   ],
   "src/components/NavFooter.vue": [
   ],
@@ -106,19 +106,19 @@
   "src/components/NavLink.vue?vue&type=script&setup=true&lang.ts": [
   ],
   "src/components/ShellCommand.vue": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "src/components/ShellCommand.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "src/components/ShellCommand.vue?vue&type=style&index=0&scoped=20db45c4&lang.css": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "src/components/SrcLink.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/SrcLink.vue_vue_type_script_setup_true_lang-769b8812.js"
+    "/assets/SrcLink.vue_vue_type_script_setup_true_lang-80a93b41.js"
   ],
   "src/composables/dark.ts": [
   ],
@@ -129,7 +129,7 @@
   "src/layouts/default.vue?vue&type=style&index=0&lang.css": [
   ],
   "src/layouts/empty.vue": [
-    "/assets/empty-201f7467.js"
+    "/assets/empty-232c59eb.js"
   ],
   "src/main.ts": [
   ],
@@ -140,118 +140,118 @@
   "src/modules/servicestack-vue.ts": [
   ],
   "src/pages/Admin.vue": [
-    "/assets/Admin-8def1c2c.js"
+    "/assets/Admin-1e648e11.js"
   ],
   "src/pages/Admin.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/Admin-8def1c2c.js"
+    "/assets/Admin-1e648e11.js"
   ],
   "src/pages/Bookings.vue": [
-    "/assets/Bookings-93864c19.js"
+    "/assets/Bookings-3fde94de.js"
   ],
   "src/pages/BookingsData.vue": [
-    "/assets/BookingsData-1fe38bfa.js"
+    "/assets/BookingsData-e416ba86.js"
   ],
   "src/pages/BookingsData.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/BookingsData-1fe38bfa.js"
+    "/assets/BookingsData-e416ba86.js"
   ],
   "src/pages/Forbidden.vue": [
-    "/assets/Forbidden-8ad2b02c.js"
+    "/assets/Forbidden-3f3b04a8.js"
   ],
   "src/pages/Index.vue": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "src/pages/Index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "src/pages/Profile.vue": [
-    "/assets/Profile-769d37a6.js"
+    "/assets/Profile-1c0d8b57.js"
   ],
   "src/pages/Profile.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/Profile-769d37a6.js"
+    "/assets/Profile-1c0d8b57.js"
   ],
   "src/pages/Signin.vue": [
-    "/assets/Signin-dfb4219e.js"
+    "/assets/Signin-e65dd39a.js"
   ],
   "src/pages/Signin.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/Signin-dfb4219e.js"
+    "/assets/Signin-e65dd39a.js"
   ],
   "src/pages/Signup.vue": [
-    "/assets/Signup-509b0145.js"
+    "/assets/Signup-c2f03961.js"
   ],
   "src/pages/Signup.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/Signup-509b0145.js"
+    "/assets/Signup-c2f03961.js"
   ],
   "src/pages/TodoMvc.vue": [
-    "/assets/TodoMvc-06d0b14c.js"
+    "/assets/TodoMvc-efd0c17a.js"
   ],
   "src/pages/TodoMvc.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/TodoMvc-06d0b14c.js"
+    "/assets/TodoMvc-efd0c17a.js"
   ],
   "src/pages/[...all].vue": [
-    "/assets/_...all_-02059a28.js"
+    "/assets/_...all_-126ce325.js"
   ],
   "src/pages/bookings-crud/Create.vue": [
-    "/assets/Create-bc669c62.js"
+    "/assets/Create-7433a0cd.js"
   ],
   "src/pages/bookings-crud/Create.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/Create.vue_vue_type_script_setup_true_lang-95a45b49.js"
+    "/assets/Create.vue_vue_type_script_setup_true_lang-0c489250.js"
   ],
   "src/pages/bookings-crud/Edit.vue": [
-    "/assets/Edit-900cd753.js"
+    "/assets/Edit-311c8640.js"
   ],
   "src/pages/bookings-crud/Edit.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/Edit.vue_vue_type_script_setup_true_lang-3d53715d.js"
+    "/assets/Edit.vue_vue_type_script_setup_true_lang-a754022e.js"
   ],
   "src/pages/bookings-crud/Index.vue": [
-    "/assets/Index-1c26bcac.js"
+    "/assets/Index-4b36ccff.js"
   ],
   "src/pages/bookings-crud/Index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/Index-1c26bcac.js"
+    "/assets/Index-4b36ccff.js"
   ],
   "src/pages/features.md": [
-    "/assets/features-cd29cc71.js"
+    "/assets/features-e40bcd60.js"
   ],
   "src/pages/hosting.md": [
-    "/assets/hosting-95e431d1.js"
+    "/assets/hosting-ce70076a.js"
   ],
   "src/pages/posts/Index.vue": [
-    "/assets/Index-b18b39f6.js"
+    "/assets/Index-020552e5.js"
   ],
   "src/pages/posts/Index.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/Index-b18b39f6.js"
+    "/assets/Index-020552e5.js"
   ],
   "src/pages/posts/deploy.md": [
-    "/assets/deploy-faa60fcf.js"
+    "/assets/deploy-4128cf2d.js"
   ],
   "src/pages/posts/rider.md": [
-    "/assets/rider-f62e4ee2.js"
+    "/assets/rider-71e18932.js"
   ],
   "src/pages/posts/typography.md": [
-    "/assets/typography-0fb47cfd.js"
+    "/assets/typography-75ec2882.js"
   ],
   "src/pages/posts/vs.md": [
-    "/assets/vs-1c70b697.js"
+    "/assets/vs-88c706d8.js"
   ],
   "src/routing.ts": [
   ],
   "src/stores/todos.ts": [
-    "/assets/TodoMvc-06d0b14c.js"
+    "/assets/TodoMvc-efd0c17a.js"
   ],
   "src/styles/index.css": [
   ],
   "src/styles/main.css": [
   ],
   "src/utils.ts": [
-    "/assets/utils-5b893830.js"
+    "/assets/utils-0ff5b48a.js"
   ],
   "~icons/carbon/checkmark-outline-warning": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "~icons/carbon/document-export": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "~icons/carbon/moon": [
@@ -259,112 +259,109 @@
   "~icons/carbon/sun": [
   ],
   "~icons/emojione/money-with-wings": [
-    "/assets/hosting-95e431d1.js"
+    "/assets/hosting-ce70076a.js"
   ],
   "~icons/fluent/add-circle24-regular": [
-    "/assets/Index-1c26bcac.js"
+    "/assets/Index-4b36ccff.js"
   ],
   "~icons/ic/round-auto-awesome-mosaic": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "~icons/ic/round-settings-input-component": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "~icons/line-md/iconify2": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "~icons/logos/digital-ocean": [
-    "/assets/hosting-95e431d1.js"
+    "/assets/hosting-ce70076a.js"
   ],
   "~icons/logos/jamstack-icon": [
-    "/assets/hosting-95e431d1.js"
+    "/assets/hosting-ce70076a.js"
   ],
   "~icons/logos/tailwindcss-icon": [
-    "/assets/tailwindcss-icon-98740439.js"
+    "/assets/tailwindcss-icon-e4a84632.js"
   ],
   "~icons/logos/typescript-icon": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "~icons/logos/visual-studio": [
-    "/assets/vs-1c70b697.js"
+    "/assets/vs-88c706d8.js"
   ],
   "~icons/logos/visual-studio-code": [
-    "/assets/vs-1c70b697.js"
+    "/assets/vs-88c706d8.js"
   ],
   "~icons/logos/vitejs": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "~icons/logos/vue": [
-    "/assets/vue-62c9136b.js"
+    "/assets/vue-83035933.js"
   ],
   "~icons/mdi/account-circle": [
-    "/assets/Profile-769d37a6.js"
+    "/assets/Profile-1c0d8b57.js"
   ],
   "~icons/mdi/arrow-left-thin": [
-    "/assets/_...all_-02059a28.js"
+    "/assets/_...all_-126ce325.js"
   ],
   "~icons/mdi/cached": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "~icons/mdi/check": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "~icons/mdi/check-circle": [
-    "/assets/TodoMvc-06d0b14c.js"
+    "/assets/TodoMvc-efd0c17a.js"
   ],
   "~icons/mdi/checkbox-blank-circle-outline": [
-    "/assets/TodoMvc-06d0b14c.js"
-  ],
-  "~icons/mdi/chevron-down": [
-    "/assets/Index-1c26bcac.js"
+    "/assets/TodoMvc-efd0c17a.js"
   ],
   "~icons/mdi/chevron-left": [
-    "/assets/chevron-left-050b9217.js"
+    "/assets/chevron-left-74e62c93.js"
   ],
   "~icons/mdi/chevron-right": [
-    "/assets/AppBreadcrumb.vue_vue_type_script_setup_true_lang-4c0b6a40.js"
+    "/assets/AppBreadcrumb.vue_vue_type_script_setup_true_lang-d882372b.js"
   ],
   "~icons/mdi/code-tags": [
-    "/assets/Index-1c26bcac.js"
+    "/assets/Index-4b36ccff.js"
   ],
   "~icons/mdi/currency-usd": [
   ],
   "~icons/mdi/home": [
-    "/assets/home-5fe636a3.js"
+    "/assets/home-4f04bdc3.js"
   ],
   "~icons/mdi/shield-account": [
-    "/assets/Admin-8def1c2c.js"
+    "/assets/Admin-1e648e11.js"
   ],
   "~icons/mdi/shield-lock-outline": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "~icons/mdi/square-edit-outline": [
-    "/assets/Index-1c26bcac.js"
+    "/assets/Index-4b36ccff.js"
   ],
   "~icons/mdi/trash-can-outline": [
-    "/assets/TodoMvc-06d0b14c.js"
+    "/assets/TodoMvc-efd0c17a.js"
   ],
   "~icons/noto/pineapple": [
-    "/assets/pineapple-c7a460bc.js"
+    "/assets/pineapple-31f36ce2.js"
   ],
   "~icons/octicon/cpu16": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "~icons/simple-icons/codeclimate": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ],
   "~icons/simple-icons/markdown": [
-    "/assets/Index-44de3f85.js",
+    "/assets/Index-abc15180.js",
     "/assets/Index-1f9f2eca.css"
   ]
 }
