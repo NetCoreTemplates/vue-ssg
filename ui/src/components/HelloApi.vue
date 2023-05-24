@@ -4,7 +4,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import { ref, watch } from "vue"
 import { Hello, HelloResponse } from "@/dtos"
 import { ApiResult } from "@servicestack/client"
 import { useClient } from "@servicestack/vue"
