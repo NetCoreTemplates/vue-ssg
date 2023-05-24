@@ -11,5 +11,5 @@ const client = useClient()
 
 const props = defineProps<{ name: string }>()
 
-const api = client.swrEffect(() => new Hello({ name: props.name }), { delayMs:0 })
+const api = client.swrEffect(() => new Hello({ name: props.name }))
 </script>
