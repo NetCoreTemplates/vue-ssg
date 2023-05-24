@@ -4,17 +4,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from "vue"
-import { Hello, HelloResponse } from "@/dtos"
-import { ApiResult } from "@servicestack/client"
+import { Hello } from "@/dtos"
 import { useClient } from "@servicestack/vue"
 
 const client = useClient()
 
 const props = defineProps<{ name: string }>()
-const api = ref(new ApiResult<HelloResponse>())
 
-const update = () => client.swr(new Hello({ name: props.name }), r => api.value = r) 
-watch([props], update)
-update()
+const api = client.swrEffect(() => new Hello({ name: props.name }))
 </script>
