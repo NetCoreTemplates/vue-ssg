@@ -26,7 +26,7 @@ public class AppHost : AppHostBase, IHostingStartup
         });
         Plugins.Add(new CorsFeature(allowOriginWhitelist:new[]{ 
             "http://localhost:5000",
-            "http://localhost:5173", "http://127.0.0.1:5173", //vite
+            "http://localhost:5174", "http://127.0.0.1:5174", //vite
             "https://localhost:5001",
             "https://" + Environment.GetEnvironmentVariable("DEPLOY_CDN")
         }, allowCredentials:true));
